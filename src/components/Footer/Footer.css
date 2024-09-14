@@ -1,0 +1,163 @@
+﻿.page-footer {
+    background-color: var(--background-secondary);
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.page-footer, .page-footer a {
+    color: var(--text-secondary);
+}
+
+.page-footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.mdn-footer-logo {
+    display: block;
+    fill: var(--text-primary);
+}
+
+footer .logo-text {
+    margin-left: .5rem;
+}
+
+.page-footer-logo-col p {
+    margin-top: 1rem;
+    max-width: 55ch;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+.social-icons li {
+    flex: 0 0 auto;
+}
+
+.social-icons .social-icon {
+    display: block;
+    height: 21px;
+    width: 21px;
+}
+
+.footer-nav-heading {
+    font: var(--type-smaller-font-size);
+    margin: 0 0 .5rem;
+}
+
+.footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.footer-nav-item {
+    font-size: var(--type-smaller-font-size);
+}
+
+.page-footer, .page-footer a {
+    color: var(--text-secondary);
+}
+
+.page-footer-moz {
+    align-items: center;
+    border-top: 1px solid var(--border-primary);
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    padding-top: 1.5rem;
+}
+
+.footer-moz-logo-link {
+    display: flex;
+    fill: var(--text-primary);
+    width: 8rem;
+}
+
+.footer-moz-list {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--type-tiny-font-size);
+    gap: 1rem;
+}
+
+.footer-moz-link {
+    text-decoration: underline;
+}
+
+.footer-moz-link:hover {
+    text-decoration: none;
+}
+
+.page-footer-legal-text {
+    font-size: var(--type-tiny-font-size);
+    margin: 0;
+}
+
+.page-footer-legal-text a {
+    text-decoration: underline;
+}
+
+.page-footer-legal-text a:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 426px) {
+    .page-footer-grid {
+        display: grid;
+        gap: 2.5rem;
+        grid-template-areas:
+        "logo . "
+        "nav1 nav2"
+        "nav3 nav4"
+        "moz moz"
+        "legal legal";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .page-footer-logo-col {
+        grid-area: logo;
+    }
+
+    .page-footer-nav-col-1 {
+        grid-area: nav1;
+    }
+
+    .page-footer-nav-col-2 {
+        grid-area: nav2;
+    }
+
+    .page-footer-nav-col-3 {
+        grid-area: nav3;
+    }
+
+    .page-footer-nav-col-4 {
+        grid-area: nav4;
+    }
+
+    .page-footer-moz {
+        grid-area: moz;
+    }
+
+    .page-footer-legal {
+        grid-area: legal;
+    }
+}
+
+@media (min-width: 769px) {
+    .page-footer-grid {
+        gap: 1rem;
+        grid-template-areas:
+        "logo nav1 nav2 nav3 nav4"
+        "moz moz moz moz moz"
+        "legal legal legal legal . ";
+        grid-template-columns: minmax(260px, 2fr) repeat(4, minmax(0, 1fr));
+    }
+}
+  

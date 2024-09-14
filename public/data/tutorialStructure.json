@@ -1,0 +1,33 @@
+﻿[
+  {
+    "title": "快速开始",
+    "file": "doc1"
+  },
+  {
+    "title": "帮助建设我们的文档",
+    "file": "doc2",
+    "children": [
+      {
+        "title": "编写文档",
+        "file": "doc2-1"
+      },
+      {
+        "title": "文档写作规范",
+        "file": "doc2-2"
+      },
+      {
+        "title": "使用Markdown语言撰写文档",
+        "file": "doc2-3"
+      },
+      {
+        "title": "文档递交",
+        "file": "doc2-4"
+      },
+      {
+        "title": "开源项目礼节",
+        "file": "doc2-5"
+      }
+    ]
+  }
+]
+  
