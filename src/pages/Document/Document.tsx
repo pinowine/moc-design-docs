@@ -1,11 +1,13 @@
-﻿import React, { useState, useEffect } from 'react'
+﻿import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import MarkdownRenderer from '../../components/MarkdownRenderer/MarkdownRenderer'
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
 import './Document.css'
+
+const MarkdownRenderer = lazy(() => import('../../components/MarkdownRenderer/MarkdownRenderer'));
+const Breadcrumb = lazy(() => import('../../components/Breadcrumb/Breadcrumb'));
 
 interface DocumentProps {
   title: string;
@@ -32,7 +34,8 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
   useEffect(() => {
     const fetchDocumentStructure = async () => {
       try {
-        const response = await fetch('/data/documentStructure.json');
+        const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
+        const response = await fetch(`${basePath}data/documentStructure.json`); // Prepend basePath
         if (!response.ok) {
           throw new Error('Error loading document structure');
         }
@@ -50,7 +53,8 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await fetch(`/documents/${fold}/${file}.md`)
+        const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
+        const response = await fetch(`${basePath}documents/${fold}/${file}.md`)
         if (response.ok) {
           const text = await response.text()
           setContent(text)
@@ -190,7 +194,9 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
                 <span className="icon icon-sidebar"></span>
               </span>
             </button>
-            <Breadcrumb path={getPathArray()} title={title} />
+            <Suspense fallback={<Loading/>} >
+              <Breadcrumb path={getPathArray()} title={title} />
+            </Suspense>
           </div>
         </div>
       </div>
@@ -341,7 +347,11 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
         </div>
         <main className="main-content">
           <article className="main-page-content" lang='zh-CN'>
-            { <MarkdownRenderer key={markdownRendererKey} file={file} fold={fold} />}
+            { 
+              <Suspense fallback={<Loading />}>
+                <MarkdownRenderer key={markdownRendererKey} file={file} fold={fold} />
+              </Suspense>
+            }
           </article>
         </main>
         

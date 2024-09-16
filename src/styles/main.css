@@ -59,6 +59,11 @@ blockquote {
   padding: 1rem 2rem;
 }
 
+iframe {
+  margin: 0;
+  max-width: 100%;
+}
+
 .page-wrapper {
   grid-template-columns: 100%;
 }

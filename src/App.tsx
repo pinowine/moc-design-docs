@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Tutorials from './pages/Tutorials/Tutorials';
-import Documents from './pages/Document/Document';
-import Projects from './pages/Projects/Projects';
-import About from './pages/About/About';
 import NotFound from './pages/NotFound/NotFound';
+import Loading from './components/Loading/Loading';
+
+// Lazy-loaded components
+const Home = React.lazy(() => import('./pages/Home/Home'));
+const Tutorials = React.lazy(() => import('./pages/Tutorials/Tutorials'));
+const Documents = React.lazy(() => import('./pages/Document/Document'));
+const Projects = React.lazy(() => import('./pages/Projects/Projects'));
+const About = React.lazy(() => import('./pages/About/About'));
 
 interface DocumentData {
   title: string;
@@ -23,7 +26,7 @@ const generateRoutes = (docs: DocumentData[], basePath = '', Component: Componen
       <Route
         key={currentPath}
         path={currentPath}
-        element={<Component file={doc.file} title={doc.title} path={doc.title} fold={fold}/>}
+        element={<Component file={doc.file} title={doc.title} path={doc.title} fold={fold} />}
       />
     );
     if (doc.children) {
@@ -42,9 +45,10 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const docRes = await fetch('/data/documentStructure.json');
-        const tutorialRes = await fetch('/data/tutorialStructure.json');
-        const projectRes = await fetch('/data/projectStructure.json');
+        const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
+        const docRes = await fetch(`${basePath}data/documentStructure.json`);
+        const tutorialRes = await fetch(`${basePath}data/tutorialStructure.json`);
+        const projectRes = await fetch(`${basePath}data/projectStructure.json`);
 
         if (docRes.ok && tutorialRes.ok && projectRes.ok) {
           const docData = await docRes.json();
@@ -67,19 +71,21 @@ const App: React.FC = () => {
 
   // Return null or loading spinner until data is loaded
   if (!documentStructure || !tutorialStructure || !projectStructure) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {generateRoutes(tutorialStructure, '/tutorials', Tutorials, 'tutorials')}
-        {generateRoutes(documentStructure, '/documents', Documents, 'documents')}
-        {generateRoutes(projectStructure, '/projects', Projects, 'projects')}
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {generateRoutes(tutorialStructure, '/tutorials', Tutorials, 'tutorials')}
+          {generateRoutes(documentStructure, '/documents', Documents, 'documents')}
+          {generateRoutes(projectStructure, '/projects', Projects, 'projects')}
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };

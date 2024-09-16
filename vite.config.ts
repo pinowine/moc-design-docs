@@ -29,6 +29,7 @@ export default defineConfig({
         '.js': 'jsx',
       },
     },
-  }
+  },
+  base: '/moc-design-docs/',  // 仓库名称作为基础路径
   
 })

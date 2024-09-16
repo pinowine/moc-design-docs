@@ -143,6 +143,7 @@
 
 .sidebar-filter-container .sidebar-filter-input-field {
   -webkit-appearance: none;
+  appearance: none;
   background-color: var(--background-primary);
   border: 1px solid var(--border-primary);
   border-radius: 1rem;

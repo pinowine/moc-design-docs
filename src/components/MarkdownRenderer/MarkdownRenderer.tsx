@@ -1,17 +1,14 @@
-﻿import React, { useEffect, useState, useRef } from 'react';
-import ReactMarkdown from 'react-markdown';
+﻿import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
+import Loading from '../Loading/Loading';
+const ReactMarkdown = lazy(() => import('react-markdown'));
 
 import { unified } from 'unified';
 import rehypeRaw from 'rehype-raw';
 import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import highlight from 'rehype-highlight';
-
-// import rehypeReact from 'rehype-react';
-// import rehypeParse from 'rehype-parse';
-// import { Link } from 'react-router-dom';
+import remarkGfm from 'remark-gfm';
 
 import h1Plugin from './plugins/h1Plugin';
 import h2Plugin from './plugins/h2Plugin';
@@ -24,6 +21,7 @@ import blockquotePlugin from './plugins/blockQuotePlugin';
 import ulToDlPlugin from './plugins/ulToDlPlugin';
 import tablePlugin from './plugins/tablePlugin';
 import linkPlugin from './plugins/linkPlugin';
+import imagePlugin from './plugins/imagePlugin';
 
 import './MarkdownRenderer.css';
 
@@ -41,7 +39,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
       try {
         const encodedFile = encodeURIComponent(file);
         const encodedFold = encodeURIComponent(fold);
-        const url = `/documents/${encodedFold}/${encodedFile}.md`;
+        const basePath = import.meta.env.BASE_URL || ''; // Fetch the base URL from Vite's environment variables
+        const url = `${basePath}documents/${encodedFold}/${encodedFile}.md`; // Add basePath prefix here
         // console.log('Fetching markdown file:', url);
         const response = await fetch(url);
         if (response.ok) {
@@ -99,6 +98,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
     .use(tablePlugin)
     .use(highlight, { prefix: '' })
     .use(codeExamplePlugin)
+    .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
     .use(linkPlugin)
     .use(rehypeStringify);
 
@@ -109,7 +109,9 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
       className="markdown-container"
       ref={markdownContainerRef}
     >
-      <ReactMarkdown rehypePlugins={[rehypeRaw]} >{processedMarkdown}</ReactMarkdown>
+      <Suspense fallback={<Loading/>} >
+        <ReactMarkdown rehypePlugins={[rehypeRaw]} >{processedMarkdown}</ReactMarkdown>
+      </Suspense>
     </div>
   );
 };

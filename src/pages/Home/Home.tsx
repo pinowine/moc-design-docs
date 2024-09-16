@@ -26,9 +26,10 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const documentRes = await fetch('/data/documentStructure.json');
-        const tutorialRes = await fetch('/data/tutorialStructure.json');
-        const projectRes = await fetch('/data/projectStructure.json');
+        const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
+        const documentRes = await fetch(`${basePath}data/documentStructure.json`);
+        const tutorialRes = await fetch(`${basePath}data/tutorialStructure.json`);
+        const projectRes = await fetch(`${basePath}data/projectStructure.json`);
 
         // console.log('Fetching documents:', documentRes);
         // console.log('Fetching tutorials:', tutorialRes);
