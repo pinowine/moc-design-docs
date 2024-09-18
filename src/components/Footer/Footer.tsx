@@ -220,7 +220,7 @@ const Footer: React.FC = () => {
             . <br />
             Portions of this content are ©1998–2024 by individual mozilla.org contributors.
             Content available under 
-            <Link to="/zh-CN/docs/MDN/Writing_guidelines/Attrib_copyright_license"> a Creative Commons license </Link>.
+            <Link to="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license"> a Creative Commons license </Link>.
           </p>
         </div>
       </div>

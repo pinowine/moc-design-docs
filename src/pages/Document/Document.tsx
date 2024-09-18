@@ -183,7 +183,7 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
         <div className="article-actions-container">
           <div className="container">
             <button 
-              className="button action has-icon sidebar-button" 
+              className="button action sidebar-button backdrop" 
               type='button' 
               aria-label={isTocOpen ? 'Collapse sidebar' : 'Open sidebar'} 
               aria-expanded={isTocOpen} 
@@ -203,6 +203,9 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
       <div className="main-wrapper">
         <div className="sidebar-container">
           <aside className={`sidebar ${isTocOpen ? 'is-expanded' : ''}`} id='sidebar-quicklinks' data-macro="LearnSidebar">
+            <button type="button" className="button action backdrop" aria-label="Collapse sidebar" onClick={toggleMobile} >
+              <span className="button-wrap"></span>
+            </button>
             <nav className="sidebar-inner" aria-label='Related Topics'>
               <header className="sidebar-actions">
                 <section className="sidebar-filter-container">

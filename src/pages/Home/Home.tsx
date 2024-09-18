@@ -69,27 +69,30 @@ const Home: React.FC = () => {
           <div className="logo-container">
             <MOCLogo className="logo" />
           </div>
-          <h1>欢迎来到 MOC-Design-DOCS</h1>
-          <p>
-            这是一个为<code>浙江大学MOC清唱团</code>搭建的静态站点，旨在便利于2024年以后的宣传与推广项目，包含开发者对自己历年为MOC设计宣传经验的总结。
+          <div className="welcome">
+            <div className='welcome-text'>欢迎来到</div>
+            <div className='moc-design-docs'>MOC-Design-DOCS</div>
+          </div>
+          <p className='desc'>
+            这是一个为 <code>{`< 浙江大学MOC清唱团 />`}</code> 搭建的静态站点，旨在便利于2024年以后的宣传与推广项目，包含开发者对自己历年为MOC设计宣传经验的总结。
           </p>
         </header>
         <section className="home-content">
           <Link to={`/tutorials/${tutorials[0].title}#${tutorials[0].title}`} className="home-section card">
-            <h2>教程</h2>
-            <p>了解如何快速开始使用我们的文档网站。</p>
+            <h2><strong>{`< 教程 />`}</strong></h2>
+            <p>快速开始，以及如何贡献你的知识。</p>
           </Link>
           <Link to={`/documents/${documents[0].title}#${documents[0].title}`} className="home-section card">
-            <h2>文档</h2>
+            <h2><strong>{`< 文档 />`}</strong></h2>
             <p>浏览和搜索你所需要的文档内容。</p>
           </Link>
           <Link to={`/projects/${projects[0].title}#${projects[0].title}`} className="home-section card">
-            <h2>项目参考</h2>
+            <h2><strong>{`< 项目参考 />`}</strong></h2>
             <p>查看其他项目的参考文档和示例。</p>
           </Link>
           <Link to="/about" className="home-section card">
-            <h2>关于我们</h2>
-            <p>了解更多关于我们团队和网站的信息。</p>
+            <h2><strong>{`< 关于我们 />`}</strong></h2>
+            <p>了解更多关于我们团队的信息。</p>
           </Link>
         </section>
       </div>

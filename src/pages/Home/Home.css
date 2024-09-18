@@ -1,17 +1,25 @@
 ﻿.home-container {
     margin: 0 auto;
     flex: 1;
-  }
+}
 
-.home-container .logo-container {
+.home-content-container .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-.home-container .logo-container .logo {
+.home-content-container .logo-container .logo {
   width: 3rem;
+}
+
+.home-content-container .welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--type-heading-h1);
+  margin-bottom: 1.5rem;
 }
 
 .home-content-container {
@@ -22,25 +30,15 @@
   flex: 1;
 }
 
+.home-content-container p, .home-content-container code {
+  font: var(--type-article-p);
+  color: var(--text-secondary);
+}
+
 .home-header {
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-.home-header h1 {
-  font-size: 2.5rem;
-  color: var(--special-text);
-  margin-bottom: 10px;
-}
-
-.home-header p {
-  font-size: 1.2rem;
-  color: var(--special-text);
-}
-
-.home-header code {
-  font-size: 1.2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .home-content {
@@ -51,12 +49,11 @@
 
 .home-section {
   padding: 20px;
-  border-radius: 10px;
-  border: 1px solid var(--text-color);
+  border-radius: var(--elem-radius);
+  border: 1px solid var(--border-primary);
   text-align: center;
   transition: 0.3s ease;
   text-decoration: none;
-  color: var(--text-color);
 }
 
 .home-section:hover {
@@ -65,12 +62,43 @@
 }
 
 .home-section h2 {
-  font-size: 1.5rem;
   margin-bottom: 10px;
-  color: var(--special-text);
+  color: var(--text-primary);
 }
 
-.home-section p {
-  font-size: 1rem;
-  color: var(--text-color);
+
+@media (max-width: 436px) {
+
+  .home-content-container p, .home-content-container code {
+    font-size: var(--type-smaller-font-size);
+  }
+
+  .home-content-container p {
+    margin-bottom: 0;
+  }
+
+  .home-content-container .welcome {
+    flex-direction: column;
+  }
+
+  .home-content-container .welcome .moc-design-docs {
+    font: var(--type-heading-h2)
+  }
+
+  .home-content-container p.desc {
+    padding: 1rem;
+  }
+
+  .home-section h2 {
+    font-size: var(--type-tiny-font-size);
+    margin-bottom: .5rem;
+    margin-top: .4rem;
+  }
+
+}
+
+@media (max-width: 346px) {
+  .home-content {
+    grid-template-columns: repeat(1, 1fr)
+  }
 }

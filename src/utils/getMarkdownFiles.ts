@@ -15,7 +15,8 @@ const fetchMarkdownFiles = async (items: MarkdownFile[], basePath: string, type:
   let files: MarkdownResult[] = [];
 
   for (const item of items) {
-    const filePath = `/documents/${basePath}/${item.file}.md`; // 构建 Markdown 文件路径
+    const baseRepo = import.meta.env.BASE_URL || ''; // Get base path from environment
+    const filePath = `${baseRepo}documents/${basePath}/${item.file}.md`; // 构建 Markdown 文件路径
 
     // 使用 fetch 获取 Markdown 文件内容
     try {
@@ -60,11 +61,13 @@ export const getMarkdownFiles = async () => {
     tutorials: 'tutorials',   // 对应 tutorialStructure 文件的数据
   };
 
+  const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
+
   // 动态加载 JSON 数据
   const [documentStructure, projectStructure, tutorialStructure] = await Promise.all([
-    fetchJSON('/data/documentStructure.json'),
-    fetchJSON('/data/projectStructure.json'),
-    fetchJSON('/data/tutorialStructure.json'),
+    fetchJSON(`${basePath}data/documentStructure.json`),
+    fetchJSON(`${basePath}data/projectStructure.json`),
+    fetchJSON(`${basePath}data/tutorialStructure.json`),
   ]);
 
   // 合并三个结构

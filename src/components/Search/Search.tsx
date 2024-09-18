@@ -10,94 +10,136 @@ interface SearchResult {
   matchedLine: string;
 }
 
+// 忽略 HTML 和超链接的正则表达式
+const removeHtmlAndLinks = (content: string) => {
+  // 去除 HTML 标签
+  const noHtml = content.replace(/<[^>]*>/g, '');
+  // 去除 Markdown 中的超链接
+  const noLinks = noHtml.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+  return noLinks;
+};
+
 const Search: React.FC = () => {
   const [keyword, setKeyword] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isLoading, setIsLoading] = useState(false); // 添加加载中状态
   const [isFocused, setIsFocused] = useState(false); // 控制input框是否聚焦
   const [activeDescendant, setActiveDescendant] = useState<string | null>(null); // 当前选择的搜索结果项
+  const [filesData, setFilesData] = useState<any[]>([]); // 用来存储预加载的文件数据
+
 
   useEffect(() => {
-    const searchFiles = async () => {
+    const fetchFilesData = async () => {
+      setIsLoading(true);
       const files = await getMarkdownFiles();
-      const results: SearchResult[] = [];
-      const fileCountMap: { [key: string]: number } = {}; // 记录每个文件的匹配次数
-
-      for (const fileObj of files) {
-        const { fileName, content, type } = fileObj;
-        // console.log('fileName:', fileName); // 打印文件名
-        // console.log('content:', content); // 打印文件内容
-        // console.log('type:', type); // 打印文件类型
-        const lines = content.split('\n');
-
-        // 在对应的 JSON 文件中查找路径
-        const documentPathData = await getDocumentPath(fileName, type);
-
-        if (documentPathData) {
-          const { path: filePathParts, prefix } = documentPathData;
-          const filePath = `/${prefix}/${filePathParts.join('/')}`; // 构建路径
-
-          lines.forEach((line: string) => {
-            if (line.toLowerCase().includes(keyword.toLowerCase())) {
-
-              // 如果该文件已经有 2 个结果，跳过
-              if (!fileCountMap[fileName]) {
-                fileCountMap[fileName] = 0;
-              }
-
-              if (fileCountMap[fileName] >= 2) {
-                return; // 超过 2 个时不再添加
-              }
-
-              fileCountMap[fileName] += 1; // 记录当前文件的匹配次数
-
-              results.push({
-                fileName,
-                filePath,
-                matchedLine: line,
-              });
-            }
-          });
-        }
-      }
-
-      setSearchResults(results);
+      setFilesData(files); // 将读取的文件数据保存到状态中
+      setIsLoading(false);
     };
 
-    if (keyword) {
-      searchFiles();
-    } else {
-      setSearchResults([]);
-    }
-  }, [keyword]);
+    fetchFilesData(); // 页面加载时预先读取文件
+  }, []);
 
+  const handleSearch = async () =>  {
+
+    if (!keyword) {
+      setSearchResults([]);
+      setIsLoading(false); // 没有关键词时停止加载
+      return;
+    }
+
+    setIsLoading(true); // 开始加载
+
+    const results: SearchResult[] = [];
+    const fileCountMap: { [key: string]: number } = {}; // 记录每个文件的匹配次数
+
+    for (const fileObj of filesData) {
+      const { fileName, content, type } = fileObj;
+
+      // console.log('fileName:', fileName); // 打印文件名
+      // console.log('content:', content); // 打印文件内容
+      // console.log('type:', type); // 打印文件类型
+
+      // 移除 HTML 和超链接
+      const cleanedContent = removeHtmlAndLinks(content);
+
+      const lines = cleanedContent.split('\n');
+      
+
+      // 在对应的 JSON 文件中查找路径
+      const documentPathData = await getDocumentPath(fileName, type);
+
+      const basePath = import.meta.env.BASE_URL || '';
+
+      if (documentPathData) {
+        const { path: filePathParts, prefix } = documentPathData;
+        const filePath = `${basePath}${prefix}/${filePathParts.join('/')}`; // 构建路径
+
+        lines.forEach((line: string) => {
+          if (line.toLowerCase().includes(keyword.toLowerCase())) {
+
+            // 如果该文件已经有 2 个结果，跳过
+            if (!fileCountMap[fileName]) {
+              fileCountMap[fileName] = 0;
+            }
+
+            if (fileCountMap[fileName] >= 2) {
+              return; // 超过 2 个时不再添加
+            }
+
+            fileCountMap[fileName] += 1; // 记录当前文件的匹配次数
+
+            results.push({
+              fileName,
+              filePath,
+              matchedLine: line,
+            });
+          }
+        });
+      }
+    }
+
+    setSearchResults(results);
+    setIsLoading(false); // 完成加载
+  };
+
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     // console.log('Keyword input:', inputValue); // 打印当前的关键词
     setKeyword(inputValue);
   };
-
+  
+  useEffect(() =>{
+    if (keyword) {
+      handleSearch();
+    } else {
+      setSearchResults([]);
+    };
+  }, [keyword])
+    
   const clearSearch = () => {
     setKeyword(''); // 清空输入框内容
     setActiveDescendant(null); // 重置 activeDescendant
   };
-
+  
   const handleSearchClick = () => {
     if (searchResults.length > 0) {
       const firstResultPath = searchResults[0].filePath; // 获取第一个搜索结果的路径
       window.location.href = firstResultPath; // 跳转到第一个结果
     }
   };
-
+  
   // 当 input 框聚焦时，设置 aria-expanded 为 true
   const handleInputFocus = () => {
     setIsFocused(true);
   };
-
+  
   // 当 input 框失去焦点时，设置 aria-expanded 为 false
   const handleInputBlur = () => {
     setIsFocused(false);
     setActiveDescendant(null); // 失去焦点时重置 activedescendant
   };
+  
 
   return (
     <div className={`header-search ${searchResults.length > 0 ? 'has-search-results' : ''}`}>
@@ -152,7 +194,11 @@ const Search: React.FC = () => {
             <div id="top-nav-search-menu" role="listbox" aria-labelledby="top-nav-search-label">
               {keyword && (
                 <div className="search-results">
-                  {searchResults.length > 0 ? (
+                  {isLoading ? ( // 显示加载中的状态
+                    <div className="result-item loading">
+                      <a href='' className='loading'>加载中...</a>
+                    </div>
+                  ) : searchResults.length > 0 ? (
                     searchResults.map((result, index) => {
                       const highlightedText = highlightMatchedText(result.matchedLine, keyword);
 
@@ -178,11 +224,11 @@ const Search: React.FC = () => {
                         </div>
                       );
                     })
-                  ) : (
-                    <div className="result-item nothing-found">
-                      <a href='' className='no-result'>无结果</a>
-                    </div> // 无结果时显示此消息
-                  )}
+                    ) : (
+                      <div className="result-item nothing-found">
+                        <a href='' className='no-result'>无结果</a>
+                      </div>
+                    )}
                 </div>
               )}
             </div>

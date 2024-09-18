@@ -7,7 +7,7 @@ const linkPlugin: Plugin = () => {
     visit(tree, 'element', (node: Element) => {
       // 检查是否为 <a> 标签
       if (node.tagName === 'a' && node.properties?.href) {
-        const href = node.properties.href as string;
+        const href = decodeURIComponent(node.properties.href as string);
 
         // 正则表达式检查是否为站外链接（以 http:// 或 https:// 开头）
         const isExternal = /^(https?:)?\/\//.test(href);

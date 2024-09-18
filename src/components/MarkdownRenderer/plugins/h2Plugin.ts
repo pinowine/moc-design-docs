@@ -24,11 +24,12 @@ const h2Plugin: Plugin<[], Parent> = () => {
             inSection = true;
             
             node.properties = { id: id };
+            const currentRoute = window.location.pathname.replace('/moc-design-docs/', '/');
             node.children = [
             {
                 type: 'element',
                 tagName: 'a',
-                properties: { href: `#${id}` },
+                properties: { href: `${currentRoute}#${id}` },
                 children: [{ type: 'text', value: id }],
             },
             ];

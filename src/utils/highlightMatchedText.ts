@@ -1,13 +1,17 @@
 ﻿export const highlightMatchedText = (text: string, keyword: string): string | null => {
-    // 找到关键词在文本中的位置
-    const keywordIndex = text.indexOf(keyword);
+    
+    // 正则表达式构建大小写不敏感的匹配
+    const regex = new RegExp(keyword, 'gi'); 
+
+    // 找到第一个关键词在文本中的位置，忽略大小写
+    const keywordIndex = text.toLowerCase().indexOf(keyword.toLowerCase());
 
     if (keywordIndex === -1) {
         return text; // 没有匹配到关键词，返回原始文本
     }
 
     // 要忽略的 Markdown 特殊字符
-    const markdownSpecialChars = ['>', '*', '#', ' ','-','、','[',']','(',')','{','}','|','`','~','!','@','/',"\"",'\''];
+    const markdownSpecialChars = ['>', '*', '#', ' ', '-', '、', '[', ']', '(', ')', '{', '}', '|', '`', '~', '!', '@', '/', '"', '\'', '\\'];
 
     // 过滤掉 Markdown 特殊字符的函数
     const filterSpecialChars = (str: string): string => {
@@ -20,7 +24,7 @@
     while (start > 0 && count < 10) {
         start--;
         if (!markdownSpecialChars.includes(text[start])) {
-        count++;
+            count++;
         }
     }
 
@@ -29,7 +33,7 @@
     count = 0;
     while (end < text.length && count < 10) {
         if (!markdownSpecialChars.includes(text[end])) {
-        count++;
+            count++;
         }
         end++;
     }
@@ -49,11 +53,8 @@
     // 在结果的前后添加省略号 "……"
     const snippetWithEllipsis = `…${snippet}…`;
 
-    // 高亮关键词
-    const highlightedSnippet = snippetWithEllipsis.replace(
-        new RegExp(keyword, 'gi'),
-        (match) => `<mark>${match}</mark>`
-    );
+    // 高亮关键词时忽略大小写，并保留原始大小写
+    const highlightedSnippet = snippetWithEllipsis.replace(regex, (match) => `<mark>${match}</mark>`);
 
     return highlightedSnippet;
 };

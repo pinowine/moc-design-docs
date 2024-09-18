@@ -143,6 +143,7 @@
 
 .sidebar-filter-container .sidebar-filter-input-field {
   -webkit-appearance: none;
+  appearance: none;
   background-color: var(--background-primary);
   border: 1px solid var(--border-primary);
   border-radius: 1rem;
@@ -329,7 +330,7 @@ section.place {
   scroll-margin-top: calc(var(--top-nav-height) + var(--article-actions-container-height) + 1rem); /* 调整这个值以匹配你的顶栏高度 */
 }
 
-@media screen and (max-width: 769px) {
+@media (max-width: 769px) {
 
   .article-actions-container .sidebar-button {
       align-items: center;
@@ -340,7 +341,6 @@ section.place {
 
   .sidebar.is-animating, .sidebar.is-expanded, .sidebar.is-expanded .sidebar-inner {
     transform: translateX(0);
-    transition: all 0.4s ease-in-out;
   }
 
   .sidebar {
@@ -351,11 +351,7 @@ section.place {
     right: 0;
     top: var(--offset);
     transform: translateX(-100%);
-    transition: all 0.4s ease-in-out;
-  }
-
-  .sidebar.is-expanded .backdrop {
-    opacity: 1;
+    transition: all .2s ease-out;
   }
 
   .sidebar .backdrop {
@@ -369,9 +365,15 @@ section.place {
     position: fixed;
     right: 0;
     top: 0;
-    transition: opacity .2s linear;
+    transition-delay: 1s;
+    transition: opacity .4s linear;
     width: 100%;
     will-change: opacity;
+  }
+  
+  .sidebar.is-expanded .backdrop {
+    opacity: 1;
+    transition: opacity .2s linear;
   }
 
   .sidebar .sidebar-inner {

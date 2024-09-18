@@ -123,6 +123,11 @@ footer .logo-text {
 
     .page-footer-logo-col {
         grid-area: logo;
+        width: 100%;
+    }
+
+    .page-footer-logo-col p {
+        font-size: var(--type-smaller-font-size);
     }
 
     .page-footer-nav-col-1 {

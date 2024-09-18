@@ -29,7 +29,9 @@
 }
 
 .markdown-container header h1 {
-    border-bottom: 4px solid var(--border-secondary);
+    padding-bottom: .5rem;
+    border-bottom: 5px solid var(--background-secondary);
+    text-shadow: var(--shadow-02);
 }
 
 .main-page-content h1 a:link, .main-page-content h1 a:visited, .main-page-content h2 a:link, .main-page-content h2 a:visited, .main-page-content h3 a:link, .main-page-content h3 a:visited, .main-page-content h4 a:link, .main-page-content h4 a:visited, .main-page-content h5 a:link, .main-page-content h5 a:visited, .main-page-content h6 a:link, .main-page-content h6 a:visited {

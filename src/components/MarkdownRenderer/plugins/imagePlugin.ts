@@ -4,7 +4,7 @@ import { Node } from 'unist';
 import { Element } from 'hast';
 
 // Define the plugin with correct types
-const imagePrefixPlugin: Plugin<[ { basePath: string } ]> = (options) => {
+const imagePlugin: Plugin<[ { basePath: string } ]> = (options) => {
   const { basePath } = options;
 
   return (tree: Node) => {
@@ -22,4 +22,4 @@ const imagePrefixPlugin: Plugin<[ { basePath: string } ]> = (options) => {
   };
 };
 
-export default imagePrefixPlugin;
+export default imagePlugin;

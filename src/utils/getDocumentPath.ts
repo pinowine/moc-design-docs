@@ -41,17 +41,18 @@ export const getDocumentPath = async (fileName: string, folder: string): Promise
 
   // 动态加载对应的 JSON 文件
   try {
+    const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
     switch (folder) {
       case 'documents':
-        structure = await fetchJSON('/data/documentStructure.json');
+        structure = await fetchJSON(`${basePath}data/documentStructure.json`);
         prefix = 'documents';
         break;
       case 'projects':
-        structure = await fetchJSON('/data/projectStructure.json');
+        structure = await fetchJSON(`${basePath}data/projectStructure.json`);
         prefix = 'projects';
         break;
       case 'tutorials':
-        structure = await fetchJSON('/data/tutorialStructure.json');
+        structure = await fetchJSON(`${basePath}data/tutorialStructure.json`);
         prefix = 'tutorials';
         break;
       default:

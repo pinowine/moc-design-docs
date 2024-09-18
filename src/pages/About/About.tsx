@@ -5,6 +5,10 @@ import Badge from '@material-ui/core/Badge';
 import { Theme, makeStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import './About.css'
 
+import pcs from '../../assets/pcs.jpg'
+import swl from '../../assets/swl.jpg'
+import brk from '../../assets/brk.jpg'
+
 const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
     badge: {
@@ -72,7 +76,7 @@ export default function BadgeAvatars() {
                 }}
                 variant="dot"
               >
-                <Avatar alt="Remy Sharp" src="/src/assets/pcs.jpg" />
+                <Avatar alt="Remy Sharp" src={pcs} />
               </StyledBadge>
               <span>布洛芬</span>
             </div>
@@ -85,7 +89,7 @@ export default function BadgeAvatars() {
                 }}
                 variant="dot"
               >
-                <Avatar alt="Travis Howard" src="/src/assets/swl.jpg" />
+                <Avatar alt="Travis Howard" src={swl} />
               </StyledBadge>
               <span>吞吞</span>
             </div>
@@ -98,7 +102,7 @@ export default function BadgeAvatars() {
                 }}
                 variant="dot"
               >
-                <Avatar alt="brk" src="/src/assets/brk.jpg" />
+                <Avatar alt="brk" src={brk} />
               </StyledBadge>
               <span>小砖</span>
             </div>

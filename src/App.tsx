@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NotFound from './pages/NotFound/NotFound';
 import Loading from './components/Loading/Loading';
 
 // Lazy-loaded components
@@ -75,7 +74,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL || ''}>
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -83,7 +82,7 @@ const App: React.FC = () => {
           {generateRoutes(documentStructure, '/documents', Documents, 'documents')}
           {generateRoutes(projectStructure, '/projects', Projects, 'projects')}
           <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>
     </Router>

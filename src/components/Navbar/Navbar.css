@@ -1,4 +1,10 @@
-﻿.top-navigation.show-nav {
+﻿.sticky-header-container {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-main-header);
+}
+
+.top-navigation.show-nav {
   box-shadow: 0 0 10px 0 #0003;
 }
 

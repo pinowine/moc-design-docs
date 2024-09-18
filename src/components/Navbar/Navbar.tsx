@@ -56,75 +56,79 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="top-navigation">
-      <div className="container">
-        <div className="top-navigation-wrap">
-          <Link to="/" className="logo" aria-label="MOCDesignDOC home">
-            <MOCLogo className="logo" />
-            <span className="logo-text">MOCDesignDOCS</span>
-          </Link>
-          <button
-            title={isMenuOpen ? 'Close main menu' : 'Open main menu'}
-            type="button"
-            className="button action has-icon main-menu-toggle"
-            aria-expanded={isMenuOpen}
-            onClick={toggleMenu}
-          >
-            <span className="button-wrap">
-              <span className={`icon ${isMenuOpen ? 'icon-menu' : 'icon-cancel'}`}></span>
-              <span className="visually-hidden">{isMenuOpen ? 'Close main menu' : 'Open main menu'}</span>
-            </span>
-          </button>
-        </div>
-        <div className="top-navigation-main">
-          <nav className="main-nav">
-            <ul className="main-menu">
-              <li className="top-level-entry-container">
-                <Link to="/" className="top-level-entry menu-link" aria-disabled={isPathMatch('/')}>
-                  首页
-                </Link>
-              </li>
-              <li className="top-level-entry-container">
-                <Link to="/tutorials/快速开始" className="top-level-entry menu-link" aria-disabled={isPathMatch('/tutorials/教程')}>
-                  教程
-                </Link>
-              </li>
-              <li className="top-level-entry-container">
-                <Link to="/documents/开始之前" className="top-level-entry menu-link" aria-disabled={isPathMatch('/documents/文档')}>
-                  文档
-                </Link>
-              </li>
-              <li className="top-level-entry-container">
-                <Link to="/projects/纳新系列" className="top-level-entry menu-link" aria-disabled={isPathMatch('/projects/项目参考')}>
-                  项目参考
-                </Link>
-              </li>
-              <li className="top-level-entry-container">
-                <Link to="/about" className="top-level-entry menu-link" aria-disabled={isPathMatch('/about')}>
-                  关于
-                </Link>
-              </li>
-            </ul>
-          </nav>
+    <div className="sticky-header-container without-actions">
 
-          <Search />
-
-          <div className="theme-switcher-menu">
+      <header className="top-navigation">
+        <div className="container">
+          <div className="top-navigation-wrap">
+            <Link to="/" className="logo" aria-label="MOCDesignDOC home">
+              <MOCLogo className="logo" />
+              <span className="logo-text">MOCDesignDOCS</span>
+            </Link>
             <button
+              title={isMenuOpen ? 'Close main menu' : 'Open main menu'}
               type="button"
-              className="button action has-icon theme-switcher-menu small"
-              aria-haspopup="menu"
-              onClick={toggleDarkMode}
+              className="button action has-icon main-menu-toggle"
+              aria-expanded={isMenuOpen}
+              onClick={toggleMenu}
             >
               <span className="button-wrap">
-                <span className="theme-switcher-menu-icon icon"></span>
-                色彩主题
+                <span className={`icon ${isMenuOpen ? 'icon-menu' : 'icon-cancel'}`}></span>
+                <span className="visually-hidden">{isMenuOpen ? 'Close main menu' : 'Open main menu'}</span>
               </span>
             </button>
           </div>
+          <div className="top-navigation-main">
+            <nav className="main-nav">
+              <ul className="main-menu">
+                <li className="top-level-entry-container">
+                  <Link to="/" className="top-level-entry menu-link" aria-disabled={isPathMatch('/')}>
+                    首页
+                  </Link>
+                </li>
+                <li className="top-level-entry-container">
+                  <Link to="/tutorials/快速开始" className="top-level-entry menu-link" aria-disabled={isPathMatch('/tutorials/教程')}>
+                    教程
+                  </Link>
+                </li>
+                <li className="top-level-entry-container">
+                  <Link to="/documents/开始之前" className="top-level-entry menu-link" aria-disabled={isPathMatch('/documents/文档')}>
+                    文档
+                  </Link>
+                </li>
+                <li className="top-level-entry-container">
+                  <Link to="/projects/纳新系列" className="top-level-entry menu-link" aria-disabled={isPathMatch('/projects/项目参考')}>
+                    项目参考
+                  </Link>
+                </li>
+                <li className="top-level-entry-container">
+                  <Link to="/about" className="top-level-entry menu-link" aria-disabled={isPathMatch('/about')}>
+                    关于
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <Search />
+
+            <div className="theme-switcher-menu">
+              <button
+                type="button"
+                className="button action has-icon theme-switcher-menu small"
+                aria-haspopup="menu"
+                onClick={toggleDarkMode}
+              >
+                <span className="button-wrap">
+                  <span className="theme-switcher-menu-icon icon"></span>
+                  色彩主题
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+    </div>
   );
 };
 
