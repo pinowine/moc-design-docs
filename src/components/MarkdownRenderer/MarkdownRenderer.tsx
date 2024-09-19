@@ -46,8 +46,19 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
         // console.log('Fetching markdown file:', url);
         const response = await fetch(url);
         if (response.ok) {
-          const text = await response.text();
+
+          let text = await response.text();
+
+          // Remove front matter if it exists
+          if (text.startsWith('---')) {
+            const frontMatterEndIndex = text.indexOf('---', 3); // Find the second '---'
+            if (frontMatterEndIndex !== -1) {
+              text = text.slice(frontMatterEndIndex + 3).trim(); // Remove front matter and clean up
+            }
+          }
+
           setMarkdown(text);
+
         } else {
           console.error('Failed to fetch markdown file:', response.statusText);
         }
@@ -121,23 +132,23 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
   }, [markdown]);
 
   const processor = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
-    .use(sectionCleanerPlugin)
-    .use(h2Plugin)
-    .use(h1Plugin)
-    .use(h3Plugin)
-    .use(ulToDlPlugin)
-    .use(blockquotePlugin)
-    .use(tablePlugin)
-    .use(highlight, { prefix: '' })
-    .use(codeExamplePlugin)
-    .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
-    .use(linkPlugin)
-    .use(lazyIframePlugin)
-    .use(rehypeStringify);
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(sectionCleanerPlugin)
+  .use(h2Plugin)
+  .use(h1Plugin)
+  .use(h3Plugin)
+  .use(ulToDlPlugin)
+  .use(blockquotePlugin)
+  .use(tablePlugin)
+  .use(highlight, { prefix: '' })
+  .use(codeExamplePlugin)
+  .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
+  .use(linkPlugin)
+  .use(lazyIframePlugin)
+  .use(rehypeStringify);
 
   const processedMarkdown = processor.processSync(markdown).toString();
 

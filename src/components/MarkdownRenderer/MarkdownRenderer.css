@@ -39,7 +39,7 @@
     text-decoration: none;
 }
 
-.main-page-content h1 a[href^="#"]:before, .main-page-content h2 a[href^="#"]:before, .main-page-content h3 a[href^="#"]:before, .main-page-content h4 a[href^="#"]:before, .main-page-content h5 a[href^="#"]:before, .main-page-content h6 a[href^="#"]:before {
+.main-page-content h1 a:before, .main-page-content h2 a:before, .main-page-content h3 a:before, .main-page-content h4 a:before, .main-page-content h5 a:before, .main-page-content h6 a:before {
     color: var(--text-inactive);
     content: "#";
     display: inline-block;
@@ -55,7 +55,7 @@
     text-decoration: underline;
 }
 
-.main-page-content h1 a[href^="#"]:hover:before, .main-page-content h2 a[href^="#"]:hover:before, .main-page-content h3 a[href^="#"]:hover:before, .main-page-content h4 a[href^="#"]:hover:before, .main-page-content h5 a[href^="#"]:hover:before, .main-page-content h6 a[href^="#"]:hover:before {
+.main-page-content h1 a:hover:before, .main-page-content h2 a:hover:before, .main-page-content h3 a:hover:before, .main-page-content h4 a:hover:before, .main-page-content h5 a:hover:before, .main-page-content h6 a:hover:before {
     visibility: visible;
 }
 
@@ -364,13 +364,13 @@ h4 {
     margin: 0 0 1rem;
 }
 
-.main-page-content dl dt a[href^="#"] {
+.main-page-content dl dt a {
     color: inherit;
     position: relative;
     text-decoration: none;
 }
 
-.main-page-content dl dt a[href^="#"]:before {
+.main-page-content dl dt a:before {
     color: var(--text-inactive);
     content: "#";
     display: inline-flex;
