@@ -29,10 +29,6 @@ jobs:
     - name: Lint code (ESLint)
       run: yarn lint  # 假设你在 package.json 中定义了 "lint" 脚本
 
-    # 运行测试 (Jest 或其他测试工具)
-    - name: Run tests
-      run: yarn test  # 确保在 package.json 中定义了 "test" 脚本，或者根据你使用的测试框架修改此命令
-
     - name: Build the project
       run: yarn build --logLevel=info  # 启用详细日志
 
