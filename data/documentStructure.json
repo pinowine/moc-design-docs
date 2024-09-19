@@ -1,35 +1,65 @@
 [
   {
     "title": "开始之前",
-    "file": "doc1",
+    "level": 1,
+    "parent": "d",
+    "type": "document",
+    "file": "d-1",
     "children": [
       {
         "title": "工作流与项目规划",
-        "file": "doc1-1"
+        "level": 2,
+        "parent": "d-1",
+        "type": "document",
+        "file": "d-1-1",
+        "children": []
       },
       {
         "title": "母题与概念",
-        "file": "doc1-2"
+        "level": 2,
+        "parent": "d-1",
+        "type": "document",
+        "file": "d-1-2",
+        "children": []
       },
       {
         "title": "灵感",
-        "file": "doc1-3"
+        "level": 2,
+        "parent": "d-1",
+        "type": "document",
+        "file": "d-1-3",
+        "children": []
       },
       {
         "title": "模仿与复刻",
-        "file": "doc1-4"
+        "level": 2,
+        "parent": "d-1",
+        "type": "document",
+        "file": "d-1-4",
+        "children": []
       },
       {
         "title": "你还可以知道",
-        "file": "doc1-5",
+        "level": 2,
+        "parent": "d-1",
+        "type": "document",
+        "file": "d-1-5",
         "children": [
           {
-            "title": "技术与艺术",
-            "file": "doc1-5-1"
+            "title": "谈论审美：商业还是主观？",
+            "level": 3,
+            "parent": "d-1-5",
+            "type": "document",
+            "file": "d-1-5-1",
+            "children": []
           },
           {
-            "title": "审美的主观性与话语权",
-            "file": "doc1-5-2"
+            "title": "如何治疗技术恐惧症",
+            "level": 3,
+            "parent": "d-1-5",
+            "type": "document",
+            "file": "d-1-5-2",
+            "children": []
           }
         ]
       }
@@ -37,99 +67,181 @@
   },
   {
     "title": "工具箱",
-    "file": "doc2",
+    "level": 1,
+    "parent": "d",
+    "type": "document",
+    "file": "d-2",
     "children": [
       {
         "title": "软件",
-        "file": "doc2-1"
+        "level": 2,
+        "parent": "d-2",
+        "type": "document",
+        "file": "d-2-1",
+        "children": []
       },
       {
         "title": "素材",
-        "file": "doc2-2"
+        "level": 2,
+        "parent": "d-2",
+        "type": "document",
+        "file": "d-2-2",
+        "children": []
       },
       {
         "title": "参考",
-        "file": "doc2-3"
+        "level": 2,
+        "parent": "d-2",
+        "type": "document",
+        "file": "d-2-3",
+        "children": []
       },
       {
         "title": "开源与版权问题",
-        "file": "doc2-4"
+        "level": 2,
+        "parent": "d-2",
+        "type": "document",
+        "file": "d-2-4",
+        "children": []
       },
       {
         "title": "MOC设计标准图标与数据仓库",
-        "file": "doc2-5"
+        "level": 2,
+        "parent": "d-2",
+        "type": "document",
+        "file": "d-2-5",
+        "children": []
       }
     ]
   },
   {
     "title": "开始动手吧",
-    "file": "doc3",
+    "level": 1,
+    "parent": "d",
+    "type": "document",
+    "file": "d-3",
     "children": [
       {
         "title": "字体",
-        "file": "doc3-1",
+        "level": 2,
+        "parent": "d-3",
+        "type": "document",
+        "file": "d-3-1",
         "children": [
           {
             "title": "字体基础",
-            "file": "doc3-1-1"
+            "level": 3,
+            "parent": "d-3-1",
+            "type": "document",
+            "file": "d-3-1-1",
+            "children": []
           },
           {
             "title": "字体分类与艺术风格",
-            "file": "doc3-1-2"
+            "level": 3,
+            "parent": "d-3-1",
+            "type": "document",
+            "file": "d-3-1-2",
+            "children": []
           },
           {
             "title": "设计字体",
-            "file": "doc3-1-3"
+            "level": 3,
+            "parent": "d-3-1",
+            "type": "document",
+            "file": "d-3-1-3",
+            "children": []
           }
         ]
       },
       {
         "title": "色彩",
-        "file": "doc3-2",
+        "level": 2,
+        "parent": "d-3",
+        "type": "document",
+        "file": "d-3-2",
         "children": [
           {
             "title": "色彩基础与技术原理",
-            "file": "doc3-2-1"
+            "level": 3,
+            "parent": "d-3-2",
+            "type": "document",
+            "file": "d-3-2-1",
+            "children": []
           },
           {
             "title": "色彩调和与搭配",
-            "file": "doc3-2-2"
+            "level": 3,
+            "parent": "d-3-2",
+            "type": "document",
+            "file": "d-3-2-2",
+            "children": []
           },
           {
             "title": "艺术风格与情绪色彩",
-            "file": "doc3-2-3"
+            "level": 3,
+            "parent": "d-3-2",
+            "type": "document",
+            "file": "d-3-2-3",
+            "children": []
           }
         ]
       },
       {
         "title": "版式",
-        "file": "doc3-3",
+        "level": 2,
+        "parent": "d-3",
+        "type": "document",
+        "file": "d-3-3",
         "children": [
           {
             "title": "版式基础",
-            "file": "doc3-3-1"
+            "level": 3,
+            "parent": "d-3-3",
+            "type": "document",
+            "file": "d-3-3-1",
+            "children": []
           },
           {
             "title": "网格及其应用",
-            "file": "doc3-3-2"
+            "level": 3,
+            "parent": "d-3-3",
+            "type": "document",
+            "file": "d-3-3-2",
+            "children": []
           },
           {
             "title": "版式的美学风格",
-            "file": "doc3-3-3"
+            "level": 3,
+            "parent": "d-3-3",
+            "type": "document",
+            "file": "d-3-3-3",
+            "children": []
           }
         ]
       },
       {
         "title": "插图",
-        "file": "doc3-4",
+        "level": 2,
+        "parent": "d-3",
+        "type": "document",
+        "file": "d-3-4",
         "children": [
           {
             "title": "简明风格介绍",
-            "file": "doc3-4-1"
+            "level": 3,
+            "parent": "d-3-4",
+            "type": "document",
+            "file": "d-3-4-1",
+            "children": []
           },
           {
             "title": "技术路径",
-            "file": "doc3-4-2"
+            "level": 3,
+            "parent": "d-3-4",
+            "type": "document",
+            "file": "d-3-4-2",
+            "children": []
           }
         ]
       }
@@ -137,84 +249,151 @@
   },
   {
     "title": "可触摸的设计：实体产出指南",
-    "file": "doc4",
+    "level": 1,
+    "parent": "d",
+    "type": "document",
+    "file": "d-4",
     "children": [
       {
         "title": "印刷技术基础",
-        "file": "doc4-1",
+        "level": 2,
+        "parent": "d-4",
+        "type": "document",
+        "file": "d-4-1",
         "children": [
           {
             "title": "纸张与颜料",
-            "file": "doc4-1-1"
+            "level": 3,
+            "parent": "d-4-1",
+            "type": "document",
+            "file": "d-4-1-1",
+            "children": []
           },
           {
             "title": "装订技术",
-            "file": "doc4-1-2"
+            "level": 3,
+            "parent": "d-4-1",
+            "type": "document",
+            "file": "d-4-1-2",
+            "children": []
           },
           {
             "title": "印刷技术与特殊工艺",
-            "file": "doc4-1-3"
+            "level": 3,
+            "parent": "d-4-1",
+            "type": "document",
+            "file": "d-4-1-3",
+            "children": []
           },
           {
             "title": "非纸材料",
-            "file": "doc4-1-4"
+            "level": 3,
+            "parent": "d-4-1",
+            "type": "document",
+            "file": "d-4-1-4",
+            "children": []
           }
         ]
       },
       {
         "title": "印前准备",
-        "file": "doc4-2",
+        "level": 2,
+        "parent": "d-4",
+        "type": "document",
+        "file": "d-4-2",
         "children": [
           {
             "title": "设计文件处理与色彩校正",
-            "file": "doc4-2-1"
+            "level": 3,
+            "parent": "d-4-2",
+            "type": "document",
+            "file": "d-4-2-1",
+            "children": []
           },
           {
             "title": "周边制品的形式选择",
-            "file": "doc4-2-2"
+            "level": 3,
+            "parent": "d-4-2",
+            "type": "document",
+            "file": "d-4-2-2",
+            "children": []
           }
         ]
       },
       {
         "title": "物料产出工作流",
-        "file": "doc4-3"
+        "level": 2,
+        "parent": "d-4",
+        "type": "document",
+        "file": "d-4-3",
+        "children": []
       }
     ]
   },
   {
     "title": "可交互的设计：公众号与推送指南",
-    "file": "doc5",
+    "level": 1,
+    "parent": "d",
+    "type": "document",
+    "file": "d-5",
     "children": [
       {
         "title": "推文基础",
-        "file": "doc5-1"
+        "level": 2,
+        "parent": "d-5",
+        "type": "document",
+        "file": "d-5-1",
+        "children": []
       },
       {
         "title": "编辑器",
-        "file": "doc5-2",
+        "level": 2,
+        "parent": "d-5",
+        "type": "document",
+        "file": "d-5-2",
         "children": [
           {
             "title": "秀米基础",
-            "file": "doc5-2-1"
+            "level": 3,
+            "parent": "d-5-2",
+            "type": "document",
+            "file": "d-5-2-1",
+            "children": []
           },
           {
             "title": "e2编辑器基础",
-            "file": "doc5-2-2"
+            "level": 3,
+            "parent": "d-5-2",
+            "type": "document",
+            "file": "d-5-2-2",
+            "children": []
           }
         ]
       },
       {
         "title": "交互设计的原则",
-        "file": "doc5-3"
+        "level": 2,
+        "parent": "d-5",
+        "type": "document",
+        "file": "d-5-3",
+        "children": []
       },
       {
         "title": "公众号运营与标准化",
-        "file": "doc5-4"
+        "level": 2,
+        "parent": "d-5",
+        "type": "document",
+        "file": "d-5-4",
+        "children": []
       }
     ]
   },
   {
     "title": "展示与编排",
-    "file": "doc6"
+    "level": 1,
+    "parent": "d",
+    "type": "document",
+    "file": "d-6",
+    "children": []
   }
 ]

@@ -1,14 +1,26 @@
-﻿[
-    {
-        "title": "纳新系列",
-        "file": "doc1"
-    },
-    {
-        "title": "专场系列",
-        "file": "doc2"
-    },
-    {
-        "title": "其他",
-        "file": "doc3"
-    }
+[
+  {
+    "title": "纳新系列",
+    "level": 1,
+    "parent": "p",
+    "type": "project",
+    "file": "p-1",
+    "children": []
+  },
+  {
+    "title": "专场系列",
+    "level": 1,
+    "parent": "p",
+    "type": "project",
+    "file": "p-2",
+    "children": []
+  },
+  {
+    "title": "其他",
+    "level": 1,
+    "parent": "p",
+    "type": "project",
+    "file": "p-3",
+    "children": []
+  }
 ]
