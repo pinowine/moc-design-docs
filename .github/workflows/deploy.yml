@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main  # 当推送到 main 分支时触发
-    paths:
-      - 'public/**'   # 监控 public 文件夹的变更
-      - 'scripts/generateStructure.js' # 监控自动生成脚本的变更
-      - 'vite.config.ts' # 监控构建配置的变更
 
 jobs:
   build:
@@ -20,10 +16,14 @@ jobs:
     - name: Set up Node.js environment
       uses: actions/setup-node@v3
       with:
-        node-version: '20.17.0'  # 根据项目需要设置 Node.js 版本
+        node-version: '20'  # 根据项目需要设置 Node.js 版本
 
     - name: Install dependencies
       run: yarn install
+
+    # Run the structure generation script
+    - name: Run the structure generation script
+      run: node scripts/generateStructure.cjs
 
     # 运行代码风格检查 (Lint)
     - name: Lint code (ESLint)
@@ -31,13 +31,6 @@ jobs:
 
     - name: Build the project
       run: yarn build --logLevel=info  # 启用详细日志
-
-    - name: Preview build (check if preview works)
-      run: |
-        yarn preview &
-        sleep 5  # 启动 preview，并等待一段时间以确保它正常运行
-        curl --fail http://localhost:4173 || exit 1  # 通过 curl 请求检查服务器是否成功启动
-      continue-on-error: true  # 如果预览失败，停止部署
 
     - name: Deploy to GitHub Pages
       if: success()
