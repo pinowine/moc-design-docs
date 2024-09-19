@@ -1,19 +1,20 @@
 ﻿import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { useLocation } from 'react-router-dom'
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import './Document.css'
 
-const MarkdownRenderer = lazy(() => import('../../components/MarkdownRenderer/MarkdownRenderer'));
+const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
+const Footer = lazy(() => import('../../components/Footer/Footer'));
 const Breadcrumb = lazy(() => import('../../components/Breadcrumb/Breadcrumb'));
+const MarkdownRenderer = lazy(() => import('../../components/MarkdownRenderer/MarkdownRenderer'));
 
 interface DocumentProps {
   title: string;
   file: string;
   path: string;
   fold: string;
+  type: string;
 }
 
 interface DocumentData {
@@ -22,7 +23,7 @@ interface DocumentData {
   children?: DocumentData[]
 }
 
-const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
+const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
   const [content, setContent] = useState('');
   const [documentStructure, setDocumentStructure] = useState<DocumentData[]>([]);
   const [currentSection, setCurrentSection] = useState('');
@@ -33,9 +34,24 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
 
   useEffect(() => {
     const fetchDocumentStructure = async () => {
+
+      if (!type) {
+        console.warn('Type is not available yet');
+        return; // Guard clause to stop execution if type is not set
+      }
+
+      const cachedData = sessionStorage.getItem(`${type}Structure`);
+      if (cachedData) {
+        const parsedData = JSON.parse(cachedData);
+        setDocumentStructure(parsedData);
+        setFilteredDocs(parsedData);
+        return; // No need to fetch if cached data exists
+      }
+
       try {
         const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
-        const response = await fetch(`${basePath}data/documentStructure.json`); // Prepend basePath
+        const response = await fetch(`${basePath}data/${type}Structure.json`); // Prepend basePath
+        console.log(`${basePath}data/${type}Structure.json`);
         if (!response.ok) {
           throw new Error('Error loading document structure');
         }
@@ -45,13 +61,20 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
       } catch (error) {
         console.error('Error fetching document structure:', error);
       }
+
     };
   
     fetchDocumentStructure();
-  }, []);
+  }, [type]);
   
   useEffect(() => {
     const fetchContent = async () => {
+
+      if (!fold || !file) {
+        console.warn('Fold or file is not available yet');
+        return; // Guard clause to stop execution if fold or file is not set
+      }
+
       try {
         const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
         const response = await fetch(`${basePath}documents/${fold}/${file}.md`)
@@ -64,6 +87,7 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
       } catch (error) {
         setContent('Error loading content')
       }
+      
     }
 
     fetchContent()
@@ -178,7 +202,9 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
     <div className="page-wrapper category-html document-page">
       <div className="sticky-header-container">
         <header className="top-navigation">
-          <Navbar />
+          <Suspense fallback={<Loading/>} >
+            <Navbar />
+          </Suspense>
         </header>
         <div className="article-actions-container">
           <div className="container">
@@ -272,7 +298,7 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
                             >{doc.title}</Link>
                         </li>
                         <li>
-                          {doc.children && (
+                          {doc.children && doc.children.length > 0 && (
                             <details open>
                               <summary>
                                 {doc.title}
@@ -287,7 +313,7 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
                                       >{child.title}</Link>
                                     </li>
                                     <li>
-                                      {child.children && (
+                                      {child.children && child.children.length > 0 && (
                                         <details open>
                                           <summary>
                                             {child.title}
@@ -359,7 +385,9 @@ const Document: React.FC<DocumentProps> = ({ file,title,fold }) => {
         </main>
         
       </div>
-      <Footer />
+      <Suspense fallback={<Loading/>}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }

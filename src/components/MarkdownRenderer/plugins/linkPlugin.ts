@@ -17,12 +17,6 @@ const linkPlugin: Plugin = () => {
           const basePath = import.meta.env.BASE_URL || '';  // 获取 basePath
           node.properties.href = `${basePath}${href}`.replace(/\/+/g, '/'); // 确保链接不会有重复的 /
         }
-
-        // 使用 data-onclick 传递自定义的处理信息
-        node.properties = {
-          ...node.properties,
-          'data-onclick': true,  // 添加 data-onclick 属性
-        };
       }
     });
   };

@@ -22,6 +22,7 @@ import ulToDlPlugin from './plugins/ulToDlPlugin';
 import tablePlugin from './plugins/tablePlugin';
 import linkPlugin from './plugins/linkPlugin';
 import imagePlugin from './plugins/imagePlugin';
+import lazyIframePlugin from './plugins/lazyIframePlugin';
 
 import './MarkdownRenderer.css';
 
@@ -35,6 +36,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
   const markdownContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
     const fetchMarkdown = async () => {
       try {
         const encodedFile = encodeURIComponent(file);
@@ -56,6 +58,21 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
 
     fetchMarkdown();
   }, [fold, file]);
+
+  // Function to replace placeholder with iframe when it comes into view
+  const loadIframe = (iframePlaceholder: HTMLElement) => {
+    const iframeSrc = iframePlaceholder.getAttribute('data-src');
+
+    if (iframeSrc) {
+      const iframe = document.createElement('iframe');
+      iframe.src = iframeSrc;
+      iframe.width = '800';
+      iframe.height = '450';
+      iframe.style.border = '1px solid rgba(0, 0, 0, 0.1)';
+      iframePlaceholder.innerHTML = ''; // Clear the placeholder
+      iframePlaceholder.appendChild(iframe); // Append the iframe
+    }
+  };
 
   const copyCode = (button: HTMLElement, codeText: string) => {
     navigator.clipboard.writeText(codeText).then(() => {
@@ -81,6 +98,25 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
         const codeText = button.parentElement?.nextSibling?.textContent || '';
         button.addEventListener('click', () => copyCode(button as HTMLElement, codeText));
       });
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // When iframe placeholder is in view, load iframe
+            const iframePlaceholder = entry.target as HTMLElement;
+            loadIframe(iframePlaceholder);
+            observer.unobserve(iframePlaceholder); // Stop observing once loaded
+          }
+        });
+      });
+
+      // Observe each iframe placeholder for lazy loading
+      const placeholders = container.querySelectorAll('.iframe-placeholder');
+      placeholders.forEach((placeholder) => {
+        observer.observe(placeholder);
+      });
+
+      // Cleanup observer on component unmount
+      return () => observer.disconnect();
     }
   }, [markdown]);
 
@@ -100,6 +136,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
     .use(codeExamplePlugin)
     .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
     .use(linkPlugin)
+    .use(lazyIframePlugin)
     .use(rehypeStringify);
 
   const processedMarkdown = processor.processSync(markdown).toString();

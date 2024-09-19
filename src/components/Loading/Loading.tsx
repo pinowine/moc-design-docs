@@ -3,6 +3,8 @@ import './Loading.css'
 
 const Loading: React.FC = () => {
   const [progress, setProgress] = useState(0);
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
   
 
   useEffect(() => {
@@ -22,11 +24,33 @@ const Loading: React.FC = () => {
     };
   }, []);
 
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
   return (
     <div className="loading-container">
       <div className="loading-text">{`< Loading... />`}</div>
-      <div className="progress-bar">
-        <div className="progress" style={{ width: `${progress}%` }}></div>
+      <div className="progress-ring">
+      <svg width="120" height="120">
+          <circle
+            className="progress-ring__background"
+            stroke="lightgray"
+            strokeWidth="10"
+            fill="transparent"
+            r={radius}
+            cx="60"
+            cy="60"
+          />
+          <circle
+            className="progress-ring__circle"
+            stroke="blue"
+            strokeWidth="10"
+            fill="transparent"
+            r={radius}
+            cx="60"
+            cy="60"
+            style={{ strokeDasharray: circumference, strokeDashoffset }}
+          />
+        </svg>
       </div>
     </div>
   );

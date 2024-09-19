@@ -389,6 +389,22 @@ h4 {
     margin-bottom: 1rem;
 }
 
+.main-page-content .section-content table {
+    border-collapse: separate;
+    border-spacing: 0; /* 保持单元格之间的距离为0 */
+}
+
+table thead {
+    position: sticky;
+    position: -webkit-sticky;
+    top: var(--sticky-header-with-actions-height);
+    z-index: var(--z-index-low);
+}
+
+table thead tr th {
+    border: 1px solid var(--border-primary);
+}
+
 table tr:first-child {
     border-top: 1px solid var(--border-primary);
 }
@@ -416,7 +432,6 @@ table tr:nth-child(odd) th, table tr td:first-child {
 
     .table-container {
         margin: 0 -3rem;
-        overflow: auto;
         width: 100vw;
     }
 }

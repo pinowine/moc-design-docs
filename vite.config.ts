@@ -23,7 +23,7 @@ export default defineConfig({
       name: 'copy-index-to-404',
       apply: 'build',
       closeBundle() {
-        const distDir = path.resolve(__dirname, 'dist')
+        const distDir = path.resolve(process.cwd(), 'dist')
         const indexPath = path.join(distDir, 'index.html')
         const notFoundPath = path.join(distDir, '404.html')
 

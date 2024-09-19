@@ -110,7 +110,7 @@ iframe {
   clip-path: inset(50%) !important;
   height: 1px !important;
   margin: -1px !important;
-  overflow: hidden !important;
+  overflow: hidden;
   padding: 0 !important;
   position: absolute !important;
   white-space: nowrap !important;

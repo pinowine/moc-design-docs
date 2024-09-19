@@ -10,26 +10,30 @@
 
 /* Text above the progress bar */
 .loading-text {
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
     font: var(--type-heading-h2);
     text-shadow: var(--shadow-02);
 }
 
-/* Outer container of the progress bar */
-.progress-bar {
-    width: 80%;
-    height: 20px;
-    border: 1px solid var(--border-secondary);
-    border-radius: var(--elem-radius);
-    overflow: hidden;
+/* Progress ring */
+.progress-ring {
     position: relative;
-    box-shadow: var(--shadow-02);
+    width: 5rem;
+    height: 5rem;
 }
 
-/* Inner progress bar */
-.progress {
-    height: 100%;
-    background-color: var(--background-mark-green);
-    width: 0;
-    transition: width 0.3s ease;
+.progress-ring__circle {
+    stroke: var(--background-mark-green);
+    stroke-width: 10;
+    fill: transparent;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.progress-ring__background {
+    stroke: var(--background-secondary);
+    stroke-width: 10;
+    fill: transparent;
 }

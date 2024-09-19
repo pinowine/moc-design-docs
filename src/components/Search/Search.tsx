@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { getMarkdownFiles } from '../../utils/getMarkdownFiles';
 import { getDocumentPath } from '../../utils/getDocumentPath'; // 引入工具函数
 import { highlightMatchedText } from '../../utils/highlightMatchedText'; // 引入高亮函数
@@ -25,7 +25,7 @@ const Search: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false); // 添加加载中状态
   const [isFocused, setIsFocused] = useState(false); // 控制input框是否聚焦
   const [activeDescendant, setActiveDescendant] = useState<string | null>(null); // 当前选择的搜索结果项
-  const [filesData, setFilesData] = useState<any[]>([]); // 用来存储预加载的文件数据
+  const [filesData, setFilesData] = useState<{fileName: string, content: string, type: string}[]>([]); // 用来存储预加载的文件数据
 
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Search: React.FC = () => {
     fetchFilesData(); // 页面加载时预先读取文件
   }, []);
 
-  const handleSearch = async () =>  {
+  const handleSearch = useCallback(async () =>  {
 
     if (!keyword) {
       setSearchResults([]);
@@ -100,7 +100,7 @@ const Search: React.FC = () => {
 
     setSearchResults(results);
     setIsLoading(false); // 完成加载
-  };
+  }, [filesData, keyword])
 
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,8 +114,8 @@ const Search: React.FC = () => {
       handleSearch();
     } else {
       setSearchResults([]);
-    };
-  }, [keyword])
+    }
+  }, [keyword, handleSearch])
     
   const clearSearch = () => {
     setKeyword(''); // 清空输入框内容

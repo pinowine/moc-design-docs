@@ -1,9 +1,11 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
+import Loading from '../../components/Loading/Loading';
 import './Home.css';
 import MOCLogo from '../../assets/moclogo.svg?react';
+
+const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
+const Footer = lazy(() => import('../../components/Footer/Footer'));
 
 interface DocumentData {
   title: string;
@@ -58,12 +60,14 @@ const Home: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // 显示加载状态
+    return <Loading/>; // 显示加载状态
   }
 
   return (
     <div className="home-container">
-      <Navbar />
+      <Suspense fallback={<Loading/>}>
+        <Navbar />
+      </Suspense>
       <div className="home-content-container">
         <header className="home-header">
           <div className="logo-container">
@@ -96,7 +100,9 @@ const Home: React.FC = () => {
           </Link>
         </section>
       </div>
-      <Footer />
+      <Suspense fallback={<Loading/>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

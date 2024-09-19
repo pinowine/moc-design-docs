@@ -4,9 +4,7 @@ import Loading from './components/Loading/Loading';
 
 // Lazy-loaded components
 const Home = React.lazy(() => import('./pages/Home/Home'));
-const Tutorials = React.lazy(() => import('./pages/Tutorials/Tutorials'));
-const Documents = React.lazy(() => import('./pages/Document/Document'));
-const Projects = React.lazy(() => import('./pages/Projects/Projects'));
+const DocumentTemplate = React.lazy(() => import('./pages/Document/Document'));
 const About = React.lazy(() => import('./pages/About/About'));
 
 interface DocumentData {
@@ -15,21 +13,25 @@ interface DocumentData {
   children?: DocumentData[];
 }
 
-type ComponentType = React.ComponentType<{ file: string, title: string, path: string, fold: string}>;
+type ComponentType = React.ComponentType<{ file: string, title: string, path: string, fold: string, type: string}>;
 
-const generateRoutes = (docs: DocumentData[], basePath = '', Component: ComponentType, fold = ''): JSX.Element[] => {
+const generateRoutes = (docs: DocumentData[], basePath = '', Component: ComponentType, fold = '', type = ''): JSX.Element[] => {
+  
   let routes: JSX.Element[] = [];
+
+  if (!docs || docs.length === 0) return routes;
+
   for (const doc of docs) {
     const currentPath = `${basePath}/${doc.title}`.replace(/\/+/g, '/');
     routes.push(
       <Route
         key={currentPath}
         path={currentPath}
-        element={<Component file={doc.file} title={doc.title} path={doc.title} fold={fold} />}
+        element={<Component file={doc.file} title={doc.title} path={doc.title} fold={fold} type={type} />}
       />
     );
     if (doc.children) {
-      routes = routes.concat(generateRoutes(doc.children, currentPath, Component, fold));
+      routes = routes.concat(generateRoutes(doc.children, currentPath, Component, fold, type));
     }
   }
   return routes;
@@ -39,6 +41,7 @@ const App: React.FC = () => {
   const [documentStructure, setDocumentStructure] = useState<DocumentData[] | null>(null);
   const [tutorialStructure, setTutorialStructure] = useState<DocumentData[] | null>(null);
   const [projectStructure, setProjectStructure] = useState<DocumentData[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // UseEffect to fetch the data for each structure
   useEffect(() => {
@@ -62,6 +65,8 @@ const App: React.FC = () => {
         }
       } catch (error) {
         console.error('Error fetching structures:', error);
+      } finally {
+        setIsLoading(false)
       }
     };
 
@@ -69,7 +74,7 @@ const App: React.FC = () => {
   }, []);
 
   // Return null or loading spinner until data is loaded
-  if (!documentStructure || !tutorialStructure || !projectStructure) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -78,9 +83,9 @@ const App: React.FC = () => {
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {generateRoutes(tutorialStructure, '/tutorials', Tutorials, 'tutorials')}
-          {generateRoutes(documentStructure, '/documents', Documents, 'documents')}
-          {generateRoutes(projectStructure, '/projects', Projects, 'projects')}
+          {generateRoutes(tutorialStructure ?? [], '/tutorials', DocumentTemplate, 'tutorials', 'tutorial')}
+          {generateRoutes(documentStructure ?? [], '/documents', DocumentTemplate, 'documents', 'document')}
+          {generateRoutes(projectStructure ?? [], '/projects', DocumentTemplate, 'projects', 'project')}
           <Route path="/about" element={<About />} />
           <Route path="*" element={<Home />} />
         </Routes>
