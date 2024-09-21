@@ -442,13 +442,7 @@ section.place {
   }
 }
 
-@media screen and (min-width: 426px) {
-  .main-page-content {
-      padding: 3rem 3rem 0;
-  }
-}
-
-@media screen and (min-width: 769px) {
+@media (min-width: 769px) {
 
   .article-actions-container {
     position: static;
@@ -508,7 +502,7 @@ section.place {
 
 }
 
-@media screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
 
   .main-wrapper {
     display: grid;

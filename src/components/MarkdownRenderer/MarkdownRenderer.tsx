@@ -18,7 +18,6 @@ import sectionCleanerPlugin from './plugins/sectionCleanerPlugin';
 import codeExamplePlugin from './plugins/codeExamplePlugin';
 import blockquotePlugin from './plugins/blockQuotePlugin';
 
-import ulToDlPlugin from './plugins/ulToDlPlugin';
 import tablePlugin from './plugins/tablePlugin';
 import linkPlugin from './plugins/linkPlugin';
 import imagePlugin from './plugins/imagePlugin';
@@ -135,16 +134,15 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRehype, { allowDangerousHtml: true })
+  .use(highlight, { prefix: '' })
+  .use(codeExamplePlugin)
   .use(rehypeRaw)
   .use(sectionCleanerPlugin)
   .use(h2Plugin)
   .use(h1Plugin)
   .use(h3Plugin)
-  .use(ulToDlPlugin)
   .use(blockquotePlugin)
   .use(tablePlugin)
-  .use(highlight, { prefix: '' })
-  .use(codeExamplePlugin)
   .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
   .use(linkPlugin)
   .use(lazyIframePlugin)

@@ -36,7 +36,24 @@
         "parent": "t-2",
         "type": "tutorial",
         "file": "t-2-3",
-        "children": []
+        "children": [
+          {
+            "title": "Markdown模板",
+            "level": 3,
+            "parent": "t-2-3",
+            "type": "tutorial",
+            "file": "t-2-3-1",
+            "children": []
+          },
+          {
+            "title": "页面部件",
+            "level": 3,
+            "parent": "t-2-3",
+            "type": "tutorial",
+            "file": "t-2-3-2",
+            "children": []
+          }
+        ]
       },
       {
         "title": "文档递交",

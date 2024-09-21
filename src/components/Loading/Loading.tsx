@@ -28,28 +28,30 @@ const Loading: React.FC = () => {
 
   return (
     <div className="loading-container">
-      <div className="loading-text">{`< Loading... />`}</div>
+      <div className="loading-text">
+        {`< Loading... />`}
+      </div>
       <div className="progress-ring">
-      <svg width="120" height="120">
-          <circle
-            className="progress-ring__background"
-            stroke="lightgray"
-            strokeWidth="10"
-            fill="transparent"
-            r={radius}
-            cx="60"
-            cy="60"
-          />
-          <circle
-            className="progress-ring__circle"
-            stroke="blue"
-            strokeWidth="10"
-            fill="transparent"
-            r={radius}
-            cx="60"
-            cy="60"
-            style={{ strokeDasharray: circumference, strokeDashoffset }}
-          />
+          <svg width="120" height="120">
+            <circle
+              className="progress-ring__background"
+              stroke="lightgray"
+              strokeWidth="10"
+              fill="transparent"
+              r={radius}
+              cx="60"
+              cy="60"
+            />
+            <circle
+              className="progress-ring__circle"
+              stroke="blue"
+              strokeWidth="10"
+              fill="transparent"
+              r={radius}
+              cx="60"
+              cy="60"
+              style={{ strokeDasharray: circumference, strokeDashoffset }}
+            />
         </svg>
       </div>
     </div>

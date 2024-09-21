@@ -66,17 +66,18 @@
 
 h3 {
     font: var(--type-heading-h3);
-    margin: 2rem 0 .5rem;
+    margin: 2rem 0 1rem;
 }
 
 h4 {
     font: var(--type-heading-h4);
-    margin: 1rem;
 }
 
 .section-content {
     padding-top: .8rem;
 }
+
+/* notecard */
 
 .notecard p {
     line-height: 2;
@@ -101,16 +102,6 @@ h4 {
 
 .notecard:last-of-type {
     margin-bottom: 2rem;
-}
-
-.notecard.warning {
-    --note-background: var(--background-warning);
-    --note-theme: var(--icon-warning);
-}
-
-.notecard.example {
-    --note-background: var(--background-success);
-    --note-theme: var(--icon-success);
 }
 
 .notecard, .notecard li, .notecard p {
@@ -144,8 +135,66 @@ h4 {
     -webkit-mask-size: contain;
     mask-size: contain;
     position: absolute;
-    top: 1.5rem;
+    top: 1.38rem;
     width: 1rem;
+}
+
+/* tip */
+
+.notecard.tip {
+    --note-background: var(--background-success);
+    --note-theme: var(--icon-success);
+}
+
+.notecard.tip:before {
+    -webkit-mask-image: url(/src/assets/note-tip.svg);
+    mask-image: url(/src/assets/note-tip.svg);
+}
+
+.notecard.tip strong {
+    color: var(--icon-success);
+}
+
+/* important */
+
+.notecard.important {
+    --note-background: var(--apis-accent-background-color);
+    --note-theme: var(--observatory-border-accent);
+    border-right: 2px solid var(--note-theme);
+}
+
+.notecard.important:before {
+    -webkit-mask-image: url(/src/assets/note-important.svg);
+    mask-image: url(/src/assets/note-important.svg);
+}
+
+.notecard.important strong {
+    color: var(--observatory-border-accent);
+}
+
+/* caution */
+
+.notecard.caution {
+    --note-background: var(--background-caution);
+    --note-theme: var(--icon-caution);
+    border-right: 2px solid var(--note-theme);
+}
+
+.notecard.caution:before {
+    -webkit-mask-image: url(/src/assets/note-caution.svg);
+    mask-image: url(/src/assets/note-caution.svg);
+}
+
+.notecard.caution strong {
+    color: var(--icon-caution);
+}
+
+/* warning */
+
+.notecard.warning {
+    --note-background: var(--background-warning);
+    --note-theme: var(--icon-warning);
+    border-right: 2px solid var(--note-theme);
 }
 
 .notecard.warning:before {
@@ -153,9 +202,15 @@ h4 {
     mask-image: url(/src/assets/note-warning.svg);
 }
 
+.notecard.warning strong {
+    color: var(--icon-warning);
+}
+
+/* example */
+
 .notecard.example {
-    border-left: none;
-    box-shadow: none;
+    --note-background: var(--background-example);
+    --note-theme: var(--icon-example);
 }
 
 .notecard.example:before {
@@ -163,8 +218,13 @@ h4 {
     mask-image: url(/src/assets/note-example.svg);
 }
 
+.notecard.example strong {
+    color: var(--note-theme);
+}
+
 .notecard.example p:first-child {
-    border-bottom: 1px solid var(--border-secondary);
+    border-bottom: 1px solid var(--note-theme);
+    margin-bottom: .8rem;
 }
 
 .notecard.example p:not(:first-child) {
@@ -177,18 +237,46 @@ h4 {
 
 .notecard.example p:not(:first-child)::before {
     content: "• ";
-    color: var(--border-secondary);
+    color: var(--note-theme);
     margin-right: 0.5em;
 }
 
+/* callout */
 
-.callout p {
+.notecard.callout {
+    --note-theme: var(--border-primary);
+    border-top: 2px solid var(--border-primary);
+    /* border-bottom: 2px solid var(--border-primary); */
+    border-left: none;
+}
+
+.notecard.callout:before {
+    display: none;
+}
+
+.notecard.callout strong, .notecard.callout p:first-child {
+    display: none;
+}
+
+.notecard.callout p {
     font: var(--type-smaller-font-size);
     margin: 0;
 }
 
-.callout {
-    background: var(--background-secondary);
+.notecard.callout p:last-child {
+    /* padding-bottom: .7rem; */
+}
+
+.notecard.callout .code-example {
+    margin-top: 1.3rem;
+}
+
+.notecard.callout pre {
+    margin: 0;
+}
+
+.notecard.callout {
+    background: var(--background-callout);
     border-radius: var(--elem-radius);
     box-shadow: var(--shadow-01);
     display: flex;
@@ -217,7 +305,6 @@ h4 {
 
 .code-example {
     --code-action-color: var(--text-secondary);
-    margin-bottom: 2rem;
     position: relative;
 }
 
@@ -426,10 +513,6 @@ table tr:nth-child(odd) th, table tr td:first-child {
 }
 
 @media (min-width: 426px) {
-    .main-page-content {
-        padding: 3rem 3rem 0;
-    }
-
     .table-container {
         margin: 0 -3rem;
         width: 100vw;
