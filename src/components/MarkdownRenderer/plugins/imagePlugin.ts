@@ -15,7 +15,7 @@ const imagePlugin: Plugin<[ { basePath: string } ], Parent> = (options) => {
         
         // If the src is relative, prepend the basePath
         if (!src.startsWith('http') && !src.startsWith('//')) {
-          src = `${basePath}${src}`;
+          src = `${basePath}images/${src}`;
         }
 
         parent.children = [
