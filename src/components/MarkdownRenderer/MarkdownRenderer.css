@@ -73,6 +73,18 @@ h4 {
     font: var(--type-heading-h4);
 }
 
+.main-page-content img {
+    background: #fff;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: var(--elem-radius);
+    box-sizing: initial;
+    color: #1b1b1b;
+    display: inline-block;
+    display: flex;
+    height: auto;
+    margin: 2rem auto;
+}
+
 .section-content {
     padding-top: .8rem;
 }
@@ -82,6 +94,7 @@ h4 {
 .notecard p {
     line-height: 2;
     margin: 0;
+    font: var(--type-article-p);
 }
 
 .notecard p, .notecard ul {
@@ -263,9 +276,9 @@ h4 {
     margin: 0;
 }
 
-.notecard.callout p:last-child {
-    /* padding-bottom: .7rem; */
-}
+/* .notecard.callout p:last-child {
+    padding-bottom: .7rem;
+} */
 
 .notecard.callout .code-example {
     margin-top: 1.3rem;

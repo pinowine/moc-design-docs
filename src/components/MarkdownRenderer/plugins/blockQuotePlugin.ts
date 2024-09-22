@@ -68,9 +68,16 @@ const blockquotePlugin: Plugin<[], Parent> = () => {
                                             }
                                         ]
                                     },
-                                    {
-                                        type: 'text',
-                                        value: ((node.children[1] as Element).children[0] as Text).value.replace(/\[[^\]]*\]/g, '')
+                                    { 
+                                        type: 'element', 
+                                        tagName: 'strong',
+                                        properties: {},
+                                        children: [
+                                            {
+                                                type: 'text',
+                                                value: ((node.children[1] as Element).children[0] as Text).value.replace(/\[[^\]]*\]/g, '')
+                                            }
+                                        ]
                                     }
                                 ]
                                 },

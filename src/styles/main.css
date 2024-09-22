@@ -64,6 +64,11 @@ iframe {
   max-width: 100%;
 }
 
+img, picture {
+  display: block;
+  max-width: 100%;
+}
+
 .page-wrapper {
   grid-template-columns: 100%;
 }

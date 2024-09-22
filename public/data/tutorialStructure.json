@@ -38,7 +38,7 @@
         "file": "t-2-3",
         "children": [
           {
-            "title": "Markdown模板",
+            "title": "页面部件",
             "level": 3,
             "parent": "t-2-3",
             "type": "tutorial",
@@ -46,7 +46,7 @@
             "children": []
           },
           {
-            "title": "页面部件",
+            "title": "使用HTML块",
             "level": 3,
             "parent": "t-2-3",
             "type": "tutorial",

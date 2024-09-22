@@ -143,8 +143,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ fold, file }) => {
   .use(h3Plugin)
   .use(blockquotePlugin)
   .use(tablePlugin)
-  .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
   .use(linkPlugin)
+  .use(imagePlugin, { basePath: `${import.meta.env.BASE_URL || ''}` })
   .use(lazyIframePlugin)
   .use(rehypeStringify);
 
