@@ -29,7 +29,7 @@ const Loading: React.FC = () => {
   return (
     <div className="loading-container">
       <div className="loading-text">
-        {`< Loading... />`}
+        {`</ ...Loading... />`}
       </div>
       <div className="progress-ring">
           <svg width="120" height="120">

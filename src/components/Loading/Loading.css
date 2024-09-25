@@ -19,8 +19,6 @@
 /* Progress ring */
 .progress-ring {
     position: relative;
-    width: 5rem;
-    height: 5rem;
 }
 
 .progress-ring__circle {
