@@ -1,11 +1,8 @@
-﻿import React, { useEffect, useState, lazy, Suspense } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import './Home.css';
 import MOCLogo from '../../assets/moclogo.svg?react';
-
-const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
-const Footer = lazy(() => import('../../components/Footer/Footer'));
 
 interface DocumentData {
   title: string;
@@ -65,9 +62,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
-      <Suspense fallback={<Loading/>}>
-        <Navbar />
-      </Suspense>
       <div className="home-content-container">
         <header className="home-header">
           <div className="logo-container">
@@ -100,9 +94,6 @@ const Home: React.FC = () => {
           </Link>
         </section>
       </div>
-      <Suspense fallback={<Loading/>}>
-        <Footer />
-      </Suspense>
     </div>
   );
 };

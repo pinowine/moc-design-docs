@@ -5,18 +5,22 @@ import { Element } from 'hast';
 const linkPlugin: Plugin = () => {
   return (tree) => {
     visit(tree, 'element', (node: Element) => {
-      // 检查是否为 <a> 标签
+      // Check if it's an <a> tag with an href property
       if (node.tagName === 'a' && node.properties?.href) {
         const href = decodeURIComponent(node.properties.href as string);
 
-        // 正则表达式检查是否为站外链接（以 http:// 或 https:// 开头）
+        // Check if it's an external link (starting with http:// or https://)
         const isExternal = /^(https?:)?\/\//.test(href);
 
-        if (!isExternal) {
-          // 如果是站内链接，则添加 basePath
-          const basePath = import.meta.env.BASE_URL || '';  // 获取 basePath
-          node.properties.href = `${basePath}${href}`.replace(/\/+/g, '/'); // 确保链接不会有重复的 /
+        // Check if it's an anchor link (starting with #)
+        const isAnchorLink = href.startsWith('#');
+
+        if (!isExternal && !isAnchorLink) {
+          // If it's an internal link (not external and not an anchor link), add basePath
+          const basePath = import.meta.env.BASE_URL || '';
+          node.properties.href = `${basePath}${href}`.replace(/\/+/g, '/'); // Ensure no duplicate slashes
         }
+        // For anchor links, do not modify the href
       }
     });
   };

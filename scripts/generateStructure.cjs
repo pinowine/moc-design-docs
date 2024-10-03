@@ -26,6 +26,7 @@ function generateFlatStructure(folderPath) {
       // 添加当前文件到平面结构中
       flatStructure.push({
         title: data.title || fileNameWithoutExtension,
+        desc: data.desc || '这篇文章暂缺说明',
         level: level,
         parent: parent || null,
         type: data.type || 'document',

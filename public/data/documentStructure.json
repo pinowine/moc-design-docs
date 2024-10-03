@@ -1,6 +1,7 @@
 [
   {
     "title": "开始之前",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "d",
     "type": "document",
@@ -8,6 +9,7 @@
     "children": [
       {
         "title": "工作流与项目规划",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -16,6 +18,7 @@
       },
       {
         "title": "母题与概念",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -24,6 +27,7 @@
       },
       {
         "title": "灵感",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -32,6 +36,7 @@
       },
       {
         "title": "模仿与复刻",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -40,6 +45,7 @@
       },
       {
         "title": "你还可以知道",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -47,6 +53,7 @@
         "children": [
           {
             "title": "谈论审美：商业还是主观？",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-1-5",
             "type": "document",
@@ -55,6 +62,7 @@
           },
           {
             "title": "如何治疗技术恐惧症",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-1-5",
             "type": "document",
@@ -67,6 +75,7 @@
   },
   {
     "title": "工具箱",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "d",
     "type": "document",
@@ -74,6 +83,7 @@
     "children": [
       {
         "title": "软件",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -82,6 +92,7 @@
       },
       {
         "title": "素材",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -90,6 +101,7 @@
       },
       {
         "title": "参考",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -98,6 +110,7 @@
       },
       {
         "title": "开源与版权问题",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -106,6 +119,7 @@
       },
       {
         "title": "MOC设计标准图标与数据仓库",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -116,6 +130,7 @@
   },
   {
     "title": "开始动手吧",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "d",
     "type": "document",
@@ -123,6 +138,7 @@
     "children": [
       {
         "title": "字体",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-3",
         "type": "document",
@@ -130,6 +146,7 @@
         "children": [
           {
             "title": "字体基础",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-1",
             "type": "document",
@@ -138,6 +155,7 @@
           },
           {
             "title": "字体分类与艺术风格",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-1",
             "type": "document",
@@ -146,6 +164,7 @@
           },
           {
             "title": "设计字体",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-1",
             "type": "document",
@@ -156,6 +175,7 @@
       },
       {
         "title": "色彩",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-3",
         "type": "document",
@@ -163,6 +183,7 @@
         "children": [
           {
             "title": "色彩基础与技术原理",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-2",
             "type": "document",
@@ -171,6 +192,7 @@
           },
           {
             "title": "色彩调和与搭配",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-2",
             "type": "document",
@@ -179,6 +201,7 @@
           },
           {
             "title": "艺术风格与情绪色彩",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-2",
             "type": "document",
@@ -189,6 +212,7 @@
       },
       {
         "title": "版式",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-3",
         "type": "document",
@@ -196,6 +220,7 @@
         "children": [
           {
             "title": "版式基础",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-3",
             "type": "document",
@@ -204,6 +229,7 @@
           },
           {
             "title": "网格及其应用",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-3",
             "type": "document",
@@ -212,6 +238,7 @@
           },
           {
             "title": "版式的美学风格",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-3",
             "type": "document",
@@ -222,6 +249,7 @@
       },
       {
         "title": "插图",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-3",
         "type": "document",
@@ -229,6 +257,7 @@
         "children": [
           {
             "title": "简明风格介绍",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-4",
             "type": "document",
@@ -237,6 +266,7 @@
           },
           {
             "title": "技术路径",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-3-4",
             "type": "document",
@@ -249,6 +279,7 @@
   },
   {
     "title": "可触摸的设计：实体产出指南",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "d",
     "type": "document",
@@ -256,6 +287,7 @@
     "children": [
       {
         "title": "印刷技术基础",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-4",
         "type": "document",
@@ -263,6 +295,7 @@
         "children": [
           {
             "title": "纸张与颜料",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -271,6 +304,7 @@
           },
           {
             "title": "装订技术",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -279,6 +313,7 @@
           },
           {
             "title": "印刷技术与特殊工艺",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -287,6 +322,7 @@
           },
           {
             "title": "非纸材料",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -297,6 +333,7 @@
       },
       {
         "title": "印前准备",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-4",
         "type": "document",
@@ -304,6 +341,7 @@
         "children": [
           {
             "title": "设计文件处理与色彩校正",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-4-2",
             "type": "document",
@@ -312,6 +350,7 @@
           },
           {
             "title": "周边制品的形式选择",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-4-2",
             "type": "document",
@@ -322,6 +361,7 @@
       },
       {
         "title": "物料产出工作流",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-4",
         "type": "document",
@@ -332,6 +372,7 @@
   },
   {
     "title": "可交互的设计：公众号与推送指南",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "d",
     "type": "document",
@@ -339,6 +380,7 @@
     "children": [
       {
         "title": "推文基础",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -347,6 +389,7 @@
       },
       {
         "title": "编辑器",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -354,6 +397,7 @@
         "children": [
           {
             "title": "秀米基础",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-5-2",
             "type": "document",
@@ -362,6 +406,7 @@
           },
           {
             "title": "e2编辑器基础",
+            "desc": "这篇文章暂缺说明",
             "level": 3,
             "parent": "d-5-2",
             "type": "document",
@@ -372,6 +417,7 @@
       },
       {
         "title": "交互设计的原则",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -380,6 +426,7 @@
       },
       {
         "title": "公众号运营与标准化",
+        "desc": "这篇文章暂缺说明",
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -390,6 +437,7 @@
   },
   {
     "title": "展示与编排",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "d",
     "type": "document",

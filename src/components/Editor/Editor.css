@@ -1,0 +1,234 @@
+﻿.editor-container {
+    height: 100%;
+    border-radius: 1rem;
+    border: 2px solid var(--border-primary);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: var(--max-width);
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* toolbar */
+
+.editor-toolbar {
+    height: 2rem;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    padding: 0 1rem;
+    align-items: center;
+    background-color: var(--background-primary);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.editor-toolbar .editor-tool-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.editor-toolbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.editor-toolbar ul li {
+    padding-left: .3rem;
+    padding-right: .3rem;
+}
+
+.editor-toolbar .tool-icon {
+    border-radius: 4px;
+}
+
+.editor-toolbar .tool-icon svg {
+    height: .8rem;
+    fill: var(--text-primary);
+}
+
+.editor-toolbar .tool-icon .local-icons svg {
+    height: auto;
+    scale: .6;
+}
+
+.toolbar-divider {
+    background-color: var(--border-secondary);
+    height: 1rem;
+    width: 2px;
+    border-radius: 1px;
+    margin-left: .3rem;
+    margin-right: .3rem;
+}
+
+.w-split-vertical > .w-split-bar  {
+    height: 2px;
+}
+
+.editor-toolbar .inner-list {
+    display: none;
+}
+
+.editor-toolbar .tool-icon:hover {
+    background-color: var(--background-secondary);
+    cursor: pointer;
+}
+
+.editor-toolbar .tool-icon:hover .inner-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 7.8rem;
+    z-index: var(--z-index-search-results);
+    background-color: var(--background-primary);
+    border-radius: var(--elem-radius);
+    border: 1px solid var(--border-primary);
+}
+
+.editor-toolbar .tool-icon .inner-list .inner-list-item-desc {
+    font-size: var(--type-tiny-font-size);
+    line-height: 1rem;
+}
+
+/* content */
+
+.editor-content {
+    height: calc(100% - 2rem);
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* input */
+
+.editor-input {
+    border-radius: 1rem;
+    height: 100%;
+}
+
+.cm-theme {
+    height: 100%;
+}
+
+/* preview */
+
+.editor-preview {
+    padding: 0 2rem;
+    height: 100%;
+}
+
+.editor-preview p {
+    font: var(--type-article-p);
+}
+
+.editor-preview .markdown-container hr {
+    display: none;
+}
+
+.editor-preview .markdown-container section:first-of-type h2 {
+    display: none;
+}
+
+.editor-preview .markdown-container section:first-of-type p {
+    font: var(--type-article-p);
+    color: var(--text-secondary);
+    background-color: var(--background-secondary);
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    border-radius: .5rem;
+}
+
+.editor-preview .markdown-container section h2 a,
+.editor-preview .markdown-container section h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.editor-preview .markdown-container section h2 a::before {
+    color: var(--text-inactive);
+    content: "#";
+    display: inline-block;
+    font-size: .7em;
+    line-height: 1;
+    margin-left: -.8em;
+    text-decoration: none;
+    width: .8em;
+}
+
+.editor-preview .markdown-container section h3 a::before {
+    color: var(--text-inactive);
+    content: "h3";
+    display: inline-block;
+    font-size: .6em;
+    line-height: 1;
+    margin-left: -1.2em;
+    text-decoration: none;
+    width: 1.1em;
+}
+
+.editor-preview .markdown-container section h4 a::before {
+    color: var(--text-inactive);
+    content: "h4";
+    display: inline-block;
+    font-size: .6em;
+    line-height: 1;
+    margin-left: -1.2em;
+    text-decoration: none;
+    width: 1.1em;
+}
+
+.editor-preview .markdown-container section ol {
+    list-style: decimal;
+}
+
+.editor-preview .markdown-container section ul {
+    list-style: disc;
+}
+
+.editor-preview .markdown-container section ol, .editor-preview .markdown-container section ul {
+    margin: 1rem 0 2rem;
+    padding-left: 2rem;
+}
+
+.editor-preview .markdown-container section ol li, .editor-preview .markdown-container section ul li {
+    margin: .5rem 0;
+}
+
+.editor-preview .markdown-container section table thead {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: var(--z-index-low);
+}
+
+@media (min-width: 426px) {
+    .editor-preview .markdown-container section .table-container {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .editor-container {
+        flex-direction: row;
+    }
+
+    .editor-toolbar {
+        height: 4rem;
+    }
+}

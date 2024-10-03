@@ -1,6 +1,4 @@
 ﻿import Avatar from '@material-ui/core/Avatar';
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import Badge from '@material-ui/core/Badge';
 import { Theme, makeStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import './About.css'
@@ -57,12 +55,6 @@ export default function BadgeAvatars() {
   const classes = useStyles();
 
   return (
-    <div className='page-wrapper category-html'>
-      <div className="sticky-header-container">
-        <header className="top-navigation">
-          <Navbar />
-        </header>
-      </div>
       <div className="about-container">
         <h1>开发者</h1>
         <div className="avatar-wrapper">
@@ -109,8 +101,6 @@ export default function BadgeAvatars() {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
   );
 }
 

@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import './Document.css'
 
-const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
-const Footer = lazy(() => import('../../components/Footer/Footer'));
-const Breadcrumb = lazy(() => import('../../components/Breadcrumb/Breadcrumb'));
-const MarkdownRenderer = lazy(() => import('../../components/MarkdownRenderer/MarkdownRenderer'));
+const MarkdownFetcher = lazy(() => import('../../components/MarkdownRenderer/MarkdownFetcher'));
 
 interface DocumentProps {
   title: string;
@@ -15,6 +12,9 @@ interface DocumentProps {
   path: string;
   fold: string;
   type: string;
+  isTocOpen: boolean;
+  toggleMobile: () => void;
+  setBreadcrumbData: (data: { path: string[]; title: string }) => void;
 }
 
 interface DocumentData {
@@ -23,12 +23,11 @@ interface DocumentData {
   children?: DocumentData[]
 }
 
-const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
+const Document: React.FC<DocumentProps> = ({ file, title, fold, type, isTocOpen, toggleMobile, setBreadcrumbData }) => {
   const [content, setContent] = useState('');
   const [documentStructure, setDocumentStructure] = useState<DocumentData[]>([]);
   const [currentSection, setCurrentSection] = useState('');
   const location = useLocation();
-  const [isTocOpen, setIsTocOpen] = useState(false);
   const [filterText, setFilterText] = useState('');
   const [filteredDocs, setFilteredDocs] = useState<DocumentData[]>([]);
 
@@ -51,7 +50,6 @@ const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
       try {
         const basePath = import.meta.env.BASE_URL || ''; // Get base path from environment
         const response = await fetch(`${basePath}data/${type}Structure.json`); // Prepend basePath
-        console.log(`${basePath}data/${type}Structure.json`);
         if (!response.ok) {
           throw new Error('Error loading document structure');
         }
@@ -110,6 +108,15 @@ const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const getPathArray = () => {
+      return location.pathname.split('/').filter(Boolean).map(segment => decodeURIComponent(segment));
+    };
+
+    setBreadcrumbData({ path: getPathArray(), title });
+
+  }, [location.pathname, setBreadcrumbData, title]);
+
   // Keep the scroll position in sidebar based on current section
   useEffect(() => {
     const handleScroll = () => {
@@ -136,34 +143,21 @@ const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
   }, []);
 
   // Make sure only the Markdown content is updated
-  const markdownRendererKey = `${fold}-${file}`;
+  const markdownFetcherKey = `${fold}-${file}`;
 
   useEffect(() => {
-    const focusCurrentDocument = () => {
-      const currentElement = document.querySelector(`[href="${window.location.hash}"]`);
-      if (currentElement) {
-        currentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (location.hash) {
+      const focusCurrentDocument = () => {
+        const currentElement = document.querySelector(`[href="${location.hash}"]`);
+        if (currentElement) {
+          currentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
-    };
-  
-    focusCurrentDocument();
-  }, [location.pathname, currentSection]); // Trigger on path or section changes
 
-  useEffect(() => {
-    if (isTocOpen) {
-      document.getElementsByTagName('body')[0].classList.add('mobile-overlay-active');
-    } else {
-      document.getElementsByTagName('body')[0].classList.remove('mobile-overlay-active');
+      focusCurrentDocument();
     }
-  }, [isTocOpen])
-
-  const getPathArray = () => {
-    return location.pathname.split('/').filter(Boolean).map(segment => decodeURIComponent(segment))
-  }
-
-  const toggleMobile = () => {
-    setIsTocOpen(!isTocOpen)
-  }
+  }, [location.pathname, location.hash]); // Trigger on path or section changes
 
   const isCurrentDocument = (docPath: string) => {
     const currentPath = decodeURIComponent(location.pathname.split('/').slice(2).join('/'));
@@ -199,33 +193,6 @@ const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
   }
 
   return (
-    <div className="page-wrapper category-html document-page">
-      <div className="sticky-header-container">
-        <header className="top-navigation">
-          <Suspense fallback={<Loading/>} >
-            <Navbar />
-          </Suspense>
-        </header>
-        <div className="article-actions-container">
-          <div className="container">
-            <button 
-              className="button action sidebar-button backdrop" 
-              type='button' 
-              aria-label={isTocOpen ? 'Collapse sidebar' : 'Open sidebar'} 
-              aria-expanded={isTocOpen} 
-              aria-controls="sidebar-quicklinks" 
-              onClick={toggleMobile} 
-            >
-              <span className="button-wrap">
-                <span className="icon icon-sidebar"></span>
-              </span>
-            </button>
-            <Suspense fallback={<Loading/>} >
-              <Breadcrumb path={getPathArray()} title={title} />
-            </Suspense>
-          </div>
-        </div>
-      </div>
       <div className="main-wrapper">
         <div className="sidebar-container">
           <aside className={`sidebar ${isTocOpen ? 'is-expanded' : ''}`} id='sidebar-quicklinks' data-macro="LearnSidebar">
@@ -378,17 +345,13 @@ const Document: React.FC<DocumentProps> = ({ file, title, fold, type }) => {
           <article className="main-page-content" lang='zh-CN'>
             { 
               <Suspense fallback={<Loading />}>
-                <MarkdownRenderer key={markdownRendererKey} file={file} fold={fold} />
+                <MarkdownFetcher key={markdownFetcherKey} file={file} fold={fold} />
               </Suspense>
             }
           </article>
         </main>
         
       </div>
-      <Suspense fallback={<Loading/>}>
-        <Footer />
-      </Suspense>
-    </div>
   )
 }
 

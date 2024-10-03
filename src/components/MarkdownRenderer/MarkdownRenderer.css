@@ -73,6 +73,14 @@ h4 {
     font: var(--type-heading-h4);
 }
 
+.section-content del {
+    text-decoration: line-through;
+}
+
+.section-content u {
+    text-decoration: underline;
+}
+
 .main-page-content img {
     background: #fff;
     border: 1px solid var(--border-primary) !important;

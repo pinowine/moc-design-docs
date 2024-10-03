@@ -1,6 +1,7 @@
 [
   {
     "title": "纳新系列",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "p",
     "type": "project",
@@ -9,6 +10,7 @@
   },
   {
     "title": "专场系列",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "p",
     "type": "project",
@@ -17,6 +19,7 @@
   },
   {
     "title": "其他",
+    "desc": "这篇文章暂缺说明",
     "level": 1,
     "parent": "p",
     "type": "project",
