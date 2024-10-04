@@ -15,7 +15,6 @@ import {ayuLight} from 'thememirror';
 // icons
 
 // template
-import { TbTemplate } from "react-icons/tb";
 import { FaDatabase } from "react-icons/fa";
 
 // text-decoration
