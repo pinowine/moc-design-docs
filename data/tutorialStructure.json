@@ -1,21 +1,36 @@
 [
   {
+    "code": "t-1",
     "title": "快速开始",
+    "desc": "专为宝宝设计",
+    "writer": "布洛芬",
+    "first_date": "2024-6-14",
+    "last_date": "2024-8-20",
     "level": 1,
-    "parent": "t",
+    "parent": null,
     "type": "tutorial",
     "file": "t-1",
     "children": []
   },
   {
+    "code": "t-2",
     "title": "帮助建设我们的文档",
+    "desc": "开源多人项目想必是一场梦",
+    "writer": "布洛芬",
+    "first_date": "2024-8-14",
+    "last_date": "2024-9-20",
     "level": 1,
-    "parent": "t",
+    "parent": null,
     "type": "tutorial",
     "file": "t-2",
     "children": [
       {
+        "code": "t-2-1",
         "title": "编写文档",
+        "desc": "理想很丰满",
+        "writer": "布洛芬",
+        "first_date": "2024-7-14",
+        "last_date": "2024-9-20",
         "level": 2,
         "parent": "t-2",
         "type": "tutorial",
@@ -23,7 +38,12 @@
         "children": []
       },
       {
+        "code": "t-2-2",
         "title": "文档写作规范",
+        "desc": "在新疆写的",
+        "writer": "布洛芬",
+        "first_date": "2024-7-14",
+        "last_date": "2024-8-27",
         "level": 2,
         "parent": "t-2",
         "type": "tutorial",
@@ -31,14 +51,24 @@
         "children": []
       },
       {
+        "code": "t-2-3",
         "title": "使用Markdown语言撰写文档",
+        "desc": "唯一认真写的部分",
+        "writer": "布洛芬",
+        "first_date": "2024-9-16",
+        "last_date": "2024-10-1",
         "level": 2,
         "parent": "t-2",
         "type": "tutorial",
         "file": "t-2-3",
         "children": [
           {
+            "code": "t-2-3-1",
             "title": "页面部件",
+            "desc": "其实最有用的一集",
+            "writer": "布洛芬",
+            "first_date": "2024-9-17",
+            "last_date": "2024-9-27",
             "level": 3,
             "parent": "t-2-3",
             "type": "tutorial",
@@ -46,7 +76,12 @@
             "children": []
           },
           {
+            "code": "t-2-3-2",
             "title": "使用HTML块",
+            "desc": "真的有人看吗",
+            "writer": "布洛芬",
+            "first_date": "2024-9-15",
+            "last_date": "2024-9-17",
             "level": 3,
             "parent": "t-2-3",
             "type": "tutorial",
@@ -56,7 +91,12 @@
         ]
       },
       {
+        "code": "t-2-4",
         "title": "文档递交",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "t-2",
         "type": "tutorial",
@@ -64,7 +104,12 @@
         "children": []
       },
       {
+        "code": "t-2-5",
         "title": "开源项目礼节",
+        "desc": "抄的MDN",
+        "writer": "MDN Docs",
+        "first_date": "2024-7-14",
+        "last_date": "2024-7-18",
         "level": 2,
         "parent": "t-2",
         "type": "tutorial",

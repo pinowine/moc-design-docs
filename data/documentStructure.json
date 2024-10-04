@@ -1,13 +1,23 @@
 [
   {
+    "code": "d-1",
     "title": "开始之前",
+    "desc": "不要恐慌！",
+    "writer": "布洛芬",
+    "first_date": "2024-9-10",
+    "last_date": "2024-10-5",
     "level": 1,
-    "parent": "d",
+    "parent": null,
     "type": "document",
     "file": "d-1",
     "children": [
       {
+        "code": "d-1-1",
         "title": "工作流与项目规划",
+        "desc": "一个自己也不会执行的计划",
+        "writer": "布洛芬",
+        "first_date": "2024-8-10",
+        "last_date": "2024-9-20",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -15,7 +25,12 @@
         "children": []
       },
       {
+        "code": "d-1-2",
         "title": "母题与概念",
+        "desc": "一个优秀的全栈设计师需要的",
+        "writer": "布洛芬",
+        "first_date": "2024-8-28",
+        "last_date": "2024-9-5",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -23,7 +38,12 @@
         "children": []
       },
       {
+        "code": "d-1-3",
         "title": "灵感",
+        "desc": "已经很努力方法论化了",
+        "writer": "布洛芬",
+        "first_date": "2024-9-8",
+        "last_date": "2024-9-17",
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -31,7 +51,12 @@
         "children": []
       },
       {
+        "code": "d-1-4",
         "title": "模仿与复刻",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-1",
         "type": "document",
@@ -39,14 +64,24 @@
         "children": []
       },
       {
+        "code": "d-1-5",
         "title": "你还可以知道",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-1",
         "type": "document",
         "file": "d-1-5",
         "children": [
           {
+            "code": "d-1-5-1",
             "title": "谈论审美：商业还是主观？",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-1-5",
             "type": "document",
@@ -54,7 +89,12 @@
             "children": []
           },
           {
+            "code": "d-1-5-2",
             "title": "如何治疗技术恐惧症",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-1-5",
             "type": "document",
@@ -66,14 +106,24 @@
     ]
   },
   {
+    "code": "d-2",
     "title": "工具箱",
+    "desc": "如何省钱",
+    "writer": "作者有点害羞",
+    "first_date": null,
+    "last_date": null,
     "level": 1,
-    "parent": "d",
+    "parent": null,
     "type": "document",
     "file": "d-2",
     "children": [
       {
+        "code": "d-2-1",
         "title": "软件",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -81,7 +131,12 @@
         "children": []
       },
       {
+        "code": "d-2-2",
         "title": "素材",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -89,7 +144,12 @@
         "children": []
       },
       {
+        "code": "d-2-3",
         "title": "参考",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -97,7 +157,12 @@
         "children": []
       },
       {
+        "code": "d-2-4",
         "title": "开源与版权问题",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -105,7 +170,12 @@
         "children": []
       },
       {
+        "code": "d-2-5",
         "title": "MOC设计标准图标与数据仓库",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-2",
         "type": "document",
@@ -115,21 +185,36 @@
     ]
   },
   {
+    "code": "d-3",
     "title": "开始动手吧",
+    "desc": "骗哥们可以",
+    "writer": "作者有点害羞",
+    "first_date": null,
+    "last_date": null,
     "level": 1,
-    "parent": "d",
+    "parent": null,
     "type": "document",
     "file": "d-3",
     "children": [
       {
+        "code": "d-3-1",
         "title": "字体",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-3",
         "type": "document",
         "file": "d-3-1",
         "children": [
           {
+            "code": "d-3-1-1",
             "title": "字体基础",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-1",
             "type": "document",
@@ -137,7 +222,12 @@
             "children": []
           },
           {
+            "code": "d-3-1-2",
             "title": "字体分类与艺术风格",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-1",
             "type": "document",
@@ -145,7 +235,12 @@
             "children": []
           },
           {
+            "code": "d-3-1-3",
             "title": "设计字体",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-1",
             "type": "document",
@@ -155,14 +250,24 @@
         ]
       },
       {
+        "code": "d-3-2",
         "title": "色彩",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-3",
         "type": "document",
         "file": "d-3-2",
         "children": [
           {
+            "code": "d-3-2-1",
             "title": "色彩基础与技术原理",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-2",
             "type": "document",
@@ -170,7 +275,12 @@
             "children": []
           },
           {
+            "code": "d-3-2-2",
             "title": "色彩调和与搭配",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-2",
             "type": "document",
@@ -178,7 +288,12 @@
             "children": []
           },
           {
+            "code": "d-3-2-3",
             "title": "艺术风格与情绪色彩",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-2",
             "type": "document",
@@ -188,14 +303,24 @@
         ]
       },
       {
+        "code": "d-3-3",
         "title": "版式",
+        "desc": "哪里顺眼放哪里",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-3",
         "type": "document",
         "file": "d-3-3",
         "children": [
           {
+            "code": "d-3-3-1",
             "title": "版式基础",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-3",
             "type": "document",
@@ -203,7 +328,12 @@
             "children": []
           },
           {
+            "code": "d-3-3-2",
             "title": "网格及其应用",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-3",
             "type": "document",
@@ -211,7 +341,12 @@
             "children": []
           },
           {
+            "code": "d-3-3-3",
             "title": "版式的美学风格",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-3",
             "type": "document",
@@ -221,14 +356,24 @@
         ]
       },
       {
+        "code": "d-3-4",
         "title": "插图",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-3",
         "type": "document",
         "file": "d-3-4",
         "children": [
           {
+            "code": "d-3-4-1",
             "title": "简明风格介绍",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-4",
             "type": "document",
@@ -236,7 +381,12 @@
             "children": []
           },
           {
+            "code": "d-3-4-2",
             "title": "技术路径",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-3-4",
             "type": "document",
@@ -248,21 +398,36 @@
     ]
   },
   {
+    "code": "d-4",
     "title": "可触摸的设计：实体产出指南",
+    "desc": "太太出谷吗？",
+    "writer": "作者有点害羞",
+    "first_date": null,
+    "last_date": null,
     "level": 1,
-    "parent": "d",
+    "parent": null,
     "type": "document",
     "file": "d-4",
     "children": [
       {
+        "code": "d-4-1",
         "title": "印刷技术基础",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-4",
         "type": "document",
         "file": "d-4-1",
         "children": [
           {
+            "code": "d-4-1-1",
             "title": "纸张与颜料",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -270,7 +435,12 @@
             "children": []
           },
           {
+            "code": "d-4-1-2",
             "title": "装订技术",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -278,7 +448,12 @@
             "children": []
           },
           {
+            "code": "d-4-1-3",
             "title": "印刷技术与特殊工艺",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -286,7 +461,12 @@
             "children": []
           },
           {
+            "code": "d-4-1-4",
             "title": "非纸材料",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-4-1",
             "type": "document",
@@ -296,14 +476,24 @@
         ]
       },
       {
+        "code": "d-4-2",
         "title": "印前准备",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-4",
         "type": "document",
         "file": "d-4-2",
         "children": [
           {
+            "code": "d-4-2-1",
             "title": "设计文件处理与色彩校正",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-4-2",
             "type": "document",
@@ -311,7 +501,12 @@
             "children": []
           },
           {
+            "code": "d-4-2-2",
             "title": "周边制品的形式选择",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-4-2",
             "type": "document",
@@ -321,7 +516,12 @@
         ]
       },
       {
+        "code": "d-4-3",
         "title": "物料产出工作流",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-4",
         "type": "document",
@@ -331,14 +531,24 @@
     ]
   },
   {
+    "code": "d-5",
     "title": "可交互的设计：公众号与推送指南",
+    "desc": "欢迎报考求是潮",
+    "writer": "作者有点害羞",
+    "first_date": null,
+    "last_date": null,
     "level": 1,
-    "parent": "d",
+    "parent": null,
     "type": "document",
     "file": "d-5",
     "children": [
       {
+        "code": "d-5-1",
         "title": "推文基础",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -346,14 +556,24 @@
         "children": []
       },
       {
+        "code": "d-5-2",
         "title": "编辑器",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-5",
         "type": "document",
         "file": "d-5-2",
         "children": [
           {
+            "code": "d-5-2-1",
             "title": "秀米基础",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-5-2",
             "type": "document",
@@ -361,7 +581,12 @@
             "children": []
           },
           {
+            "code": "d-5-2-2",
             "title": "e2编辑器基础",
+            "desc": "这篇文章暂缺说明",
+            "writer": "作者有点害羞",
+            "first_date": null,
+            "last_date": null,
             "level": 3,
             "parent": "d-5-2",
             "type": "document",
@@ -371,7 +596,12 @@
         ]
       },
       {
+        "code": "d-5-3",
         "title": "交互设计的原则",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -379,7 +609,12 @@
         "children": []
       },
       {
+        "code": "d-5-4",
         "title": "公众号运营与标准化",
+        "desc": "这篇文章暂缺说明",
+        "writer": "作者有点害羞",
+        "first_date": null,
+        "last_date": null,
         "level": 2,
         "parent": "d-5",
         "type": "document",
@@ -389,9 +624,14 @@
     ]
   },
   {
+    "code": "d-6",
     "title": "展示与编排",
+    "desc": "如果你需要微博贴条",
+    "writer": "作者有点害羞",
+    "first_date": null,
+    "last_date": null,
     "level": 1,
-    "parent": "d",
+    "parent": null,
     "type": "document",
     "file": "d-6",
     "children": []
