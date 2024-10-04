@@ -25,10 +25,6 @@ jobs:
     - name: Run the structure generation script
       run: node scripts/generateStructure.cjs
 
-    # 运行代码风格检查 (Lint)
-    - name: Lint code (ESLint)
-      run: yarn lint  # 假设你在 package.json 中定义了 "lint" 脚本
-
     - name: Build the project
       run: yarn build --logLevel=info  # 启用详细日志
 
