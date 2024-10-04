@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+﻿const fs = require('fs'); 
 const path = require('path');
 const matter = require('gray-matter'); // 用来解析 YAML 头部
 
@@ -21,15 +21,20 @@ function generateFlatStructure(folderPath) {
 
       const parts = fileNameWithoutExtension.split('-');
       const level = parts.length - 1; // 根据文件名中 "-" 的数量决定层级
-      const parent = parts.slice(0, -1).join('-'); // 父级文件名
+      const parent = parts.slice(0, -1).join('-') || null; // 父级文件名
+      const type = fileNameWithoutExtension.startsWith('d-') ? 'document' : fileNameWithoutExtension.startsWith('t-') ? 'tutorial' : 'project';
 
       // 添加当前文件到平面结构中
       flatStructure.push({
+        code: data.code || fileNameWithoutExtension,
         title: data.title || fileNameWithoutExtension,
         desc: data.desc || '这篇文章暂缺说明',
+        writer: data.writer || '作者有点害羞',
+        first_date: data.first_date || null,
+        last_date: data.last_date || null,
         level: level,
-        parent: parent || null,
-        type: data.type || 'document',
+        parent: level === 1 ? null : parent,
+        type: type,
         file: fileNameWithoutExtension,
         children: [],
       });

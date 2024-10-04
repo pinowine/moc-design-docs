@@ -1,4 +1,50 @@
-﻿.main-page-content section h2:first-of-type {
+﻿/* heading */
+.markdown-container .heading-info {
+    margin-top: 5rem;
+    color: var(--text-muted);
+    font-size: var(--type-tiny-font-size);
+}
+
+.markdown-container .heading-info p {
+    font-size: var(--type-base-font-size-rem)!important;
+}
+
+.markdown-container .heading-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.markdown-container .heading-info-wrapper .date-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    flex-wrap: wrap;
+}
+
+.markdown-container .heading-info-wrapper .date-wrapper .first-date-wrapper {
+    margin-right: 1rem;
+}
+
+.markdown-container .header-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 5px solid var(--background-secondary);
+    margin-bottom: 2rem;
+}
+
+.markdown-container .header-wrapper p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.main-page-content section h2:first-of-type {
     margin-top: 2rem;
 }
 
@@ -29,9 +75,8 @@
 }
 
 .markdown-container header h1 {
-    padding-bottom: .5rem;
-    border-bottom: 5px solid var(--background-secondary);
     text-shadow: var(--shadow-02);
+    margin: 0;
 }
 
 .main-page-content h1 a:link, .main-page-content h1 a:visited, .main-page-content h2 a:link, .main-page-content h2 a:visited, .main-page-content h3 a:link, .main-page-content h3 a:visited, .main-page-content h4 a:link, .main-page-content h4 a:visited, .main-page-content h5 a:link, .main-page-content h5 a:visited, .main-page-content h6 a:link, .main-page-content h6 a:visited {
@@ -489,6 +534,21 @@ h4 {
     top: .5em;
     visibility: hidden;
     width: .8em;
+}
+
+/* checklist */
+ul.contains-task-list {
+    padding-left: 0;
+}
+
+.task-list-item.no-marker {
+    list-style-type: none;
+}
+
+/* hr */
+
+.section-content hr {
+    border: 1.5px solid var(--border-secondary);
 }
 
 /* table */

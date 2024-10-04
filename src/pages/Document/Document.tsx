@@ -12,6 +12,10 @@ interface DocumentProps {
   path: string;
   fold: string;
   type: string;
+  desc: string;
+  writer: string;
+  firstDate: string;
+  lastDate: string;
   isTocOpen: boolean;
   toggleMobile: () => void;
   setBreadcrumbData: (data: { path: string[]; title: string }) => void;
@@ -23,7 +27,7 @@ interface DocumentData {
   children?: DocumentData[]
 }
 
-const Document: React.FC<DocumentProps> = ({ file, title, fold, type, isTocOpen, toggleMobile, setBreadcrumbData }) => {
+const Document: React.FC<DocumentProps> = ({ file, title, fold, type, desc, writer, firstDate, lastDate, isTocOpen, toggleMobile, setBreadcrumbData }) => {
   const [content, setContent] = useState('');
   const [documentStructure, setDocumentStructure] = useState<DocumentData[]>([]);
   const [currentSection, setCurrentSection] = useState('');
@@ -345,7 +349,7 @@ const Document: React.FC<DocumentProps> = ({ file, title, fold, type, isTocOpen,
           <article className="main-page-content" lang='zh-CN'>
             { 
               <Suspense fallback={<Loading />}>
-                <MarkdownFetcher key={markdownFetcherKey} file={file} fold={fold} />
+                <MarkdownFetcher key={markdownFetcherKey} file={file} fold={fold} writer={writer} firstDate={firstDate} lastDate={lastDate} desc={desc} />
               </Suspense>
             }
           </article>

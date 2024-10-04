@@ -13,7 +13,11 @@ const Tool = React.lazy(() => import('./pages/Tool/Tool'))
 
 interface DocumentData {
   title: string;
-  file: string;
+  code: string;
+  desc: string;
+  writer: string;
+  first_date: string;
+  last_date: string;
   children?: DocumentData[];
   setBreadcrumbData: (data: { path: string[]; title: string }) => void;
 }
@@ -24,6 +28,10 @@ type ComponentType = React.ComponentType<{
   path: string, 
   fold: string, 
   type: string, 
+  desc: string;
+  writer: string,
+  firstDate: string,
+  lastDate: string,
   setBreadcrumbData: (data: { path: string[]; title: string }) => void,
   isTocOpen: boolean,
   toggleMobile: () => void
@@ -75,11 +83,15 @@ const generateRoutes = (
               toggleDarkMode={toggleDarkMode}
             />
             <Component 
-              file={doc.file} 
+              file={doc.code} 
               title={doc.title} 
               path={doc.title} 
               fold={fold} 
               type={type} 
+              desc={doc.desc}
+              writer={doc.writer}
+              firstDate={doc.first_date}
+              lastDate={doc.last_date}
               setBreadcrumbData={setBreadcrumbData} 
               isTocOpen={isTocOpen}
               toggleMobile={toggleMobile}
@@ -94,7 +106,7 @@ const generateRoutes = (
         currentPath, 
         Component, 
         fold, 
-        type, 
+        type,
         setBreadcrumbData, 
         isTocOpen, 
         toggleMobile,

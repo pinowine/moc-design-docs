@@ -5,9 +5,13 @@ import MarkdownRenderer from './MarkdownRenderer';
 interface MarkdownFetcherProps {
   fold: string;
   file: string;
+  writer: string;
+  firstDate: string;
+  lastDate: string;
+  desc: string;
 }
 
-const MarkdownFetcher: React.FC<MarkdownFetcherProps> = ({ fold, file }) => {
+const MarkdownFetcher: React.FC<MarkdownFetcherProps> = ({ fold, file, desc, writer, firstDate, lastDate }) => {
   const [markdown, setMarkdown] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -48,7 +52,7 @@ const MarkdownFetcher: React.FC<MarkdownFetcherProps> = ({ fold, file }) => {
     return <Loading />;
   }
 
-  return <MarkdownRenderer markdown={markdown} />;
+  return <MarkdownRenderer markdown={markdown} writer={writer} firstDate={firstDate} lastDate={lastDate} desc={desc} />;
 };
 
 export default MarkdownFetcher;
