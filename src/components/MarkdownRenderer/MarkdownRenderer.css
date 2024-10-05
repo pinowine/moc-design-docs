@@ -320,7 +320,7 @@ h4 {
     display: none;
 }
 
-.notecard.callout strong, .notecard.callout p:first-child {
+.notecard.callout .block-quote-title-wrapper.callout-title, .notecard.callout p:first-child {
     display: none;
 }
 

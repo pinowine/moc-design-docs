@@ -55,7 +55,7 @@ const blockquotePlugin: Plugin<[], Parent> = () => {
                                 {
                                 type: 'element',
                                 tagName: 'p',
-                                properties: {},
+                                properties: {className: `block-quote-title-wrapper ${className === 'notecard callout' ? 'callout-title' : ''}`},
                                 children: [
                                     { 
                                         type: 'element', 

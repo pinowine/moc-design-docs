@@ -417,8 +417,10 @@ last_date: ${lastDate}
                                                     type="text" 
                                                     name="desc"
                                                     value={desc} 
+                                                    maxLength={30}
                                                     placeholder='尽量简短' 
                                                     onChange={(e) => handleInputChange(setDesc, e)}
+                                                    onBlur={ (e) => e.target.value.length > 30 ? setDesc('文本过长') : null}
                                                 />
                                             </div>
                                             <div className="inline-input-wrapper">
