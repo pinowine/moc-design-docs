@@ -3,9 +3,9 @@
 > **📦 可扩展·协作式在线设计知识库**  
 > 专为MOC清唱团打造的设计文档平台，助力创意高效落地
 
-![MOC Design Docs](https://img.shields.io/badge/Status-active-brightgreen)
-![文档覆盖度-20%](https://img.shields.io/badge/Coverage-20%-green)
-![最后更新-2025-5-29](https://img.shields.io/badge/Last_Update-2025--5--29-blue)
+![MOC Design Docs](https://img.shields.io/badge/status-active-brightgreen)
+![文档覆盖度-20%](https://img.shields.io/badge/coverage-20%25-green)
+![最后更新-2025-5-29](https://img.shields.io/badge/last_update-2025--5--29-blue)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## 📚 目录导航
@@ -103,47 +103,25 @@ graph TB
 > [!NOTE]
 > 详见[使用Markdown语言撰写文档](https://pinowine.github.io/moc-design-docs/tutorials/%E5%B8%AE%E5%8A%A9%E5%BB%BA%E8%AE%BE%E6%88%91%E4%BB%AC%E7%9A%84%E6%96%87%E6%A1%A3/%E4%BD%BF%E7%94%A8Markdown%E8%AF%AD%E8%A8%80%E6%92%B0%E5%86%99%E6%96%87%E6%A1%A3)
 
-文件头结构示例：
-
-````markdown
----
-code: d-3-2-1
-title: 响应式设计原则
-desc: 多设备适配指南
-writer: 设计师A
-first_date: 2024-10-15
-last_date: 2024-10-15
----
-````
-
-> [!NOTE]
-> **文件头说明**
->
-> - `code`：文档ID（t=教程, d=文档, p=项目）
-> - `title`：须与H1标题完全一致
-> - `desc`：10字内简短描述
-> - `writer`：贡献者标识名
-> - `*_date`：创建/修改日期
-
 ## 📝 文档规范
 
 ### 内容范围
 
-> ✅ **推荐主题**
->
-> - 色彩理论应用
-> - 印刷工艺解析
-> - 微信公众号排版
-> - 实体物料生产
-> - 设计工作流程
+✅ **推荐主题**
 
-> ⛔ **暂不收录**
->
-> - UI/UX设计（Web/APP）
-> - 产品包装设计
-> - 工业交互设计
-> - 建筑景观设计
-> - 游戏动画设计
+- 色彩理论应用
+- 印刷工艺解析
+- 微信公众号排版
+- 实体物料生产
+- 设计工作流程
+
+⛔ **暂不收录**
+
+- UI/UX设计（Web/APP）
+- 产品包装设计
+- 工业交互设计
+- 建筑景观设计
+- 游戏动画设计
 
 ### 质量要求
 
@@ -285,4 +263,4 @@ graph LR
 > ChatGPT辅助完成70%的代码实现，DeepSeek辅助整合本自述文件
 
 ---
-© 2024 MOC清唱团设计组 | [更新日志](https://github.com/pinowine/moc-design-docs/commits/main) | [在线文档](https://pinowine.github.io/moc-design-docs/) | [CC BY-NC-SA 4.0 许可证](LICENSE)
+© 2024 MOC清唱团设计组 | [更新日志](https://github.com/pinowine/moc-design-docs/commits/main) | [在线文档](https://pinowine.github.io/moc-design-docs/) | [CC BY-NC-SA 4.0 许可证](LICENSE.md)
